@@ -1,0 +1,13 @@
+/* .list-item:hover {
+    background-color: #4f9eff;
+} */
+
+.inner-container {
+    /* background: url("../../images/light_honeycomb.png"); */
+    /* background: url("../../images/wall4.png"); */
+    background: url("../../images/furley_bg.png"); 
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top:10px;
+    padding-bottom: 20px;
+}
