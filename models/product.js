@@ -6,11 +6,15 @@ const productSchema = new Schema({
   type: { type: String, required: true },
   description: { type: String, required: true },
   currentCount: { type: Number, default: 0 },
-  numberSold: { type: Number, default: 0 },
-  price: { type: Number, default: 0 },
-  materials: { type: [String]},
+  pricePerUnit: { type: Number, default: 0},
   netCostPerUnit: { type: Number, default: 0},
   image: { type: String},
+  materials: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Material"
+    }
+  ],
   sales: [
     {
       type: Schema.Types.ObjectId,

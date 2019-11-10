@@ -38,10 +38,9 @@ module.exports = {
           "type": req.body.type,
           "description": req.body.description,
           "currentCount": req.body.currentCount,
-          "numberSold": req.body.numberSold,
-          "price": req.body.price,
-          "materials": req.body.materials,
+          "pricePerUnit": req.body.price,
           "netCostPerUnit": req.body.netCostPerUnit,
+          "materials": req.body.materials,
           "image": req.body.image
         }
       })
