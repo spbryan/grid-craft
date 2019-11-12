@@ -1,9 +1,9 @@
 /********************************
- * Controller directing data manipulation for Sales Model
+ * Controller directing data manipulation for Sale Model
  * 
  * @author Sean Bryan
  * 
- * 2019-11-10
+ * 2019-11-12
  ********************************/
 const db = require("../models");
 
@@ -19,20 +19,20 @@ module.exports = {
       .then(dbSale => res.json(dbSale))
       .catch(err => res.status(422).json(err));
   },
+  findByUserId: function (req, res) {
+    db.Sale.find({ userId: req.params.id })
+      .then(dbSale => res.json(dbSale))
+      .catch(err => res.status(422).json(err));
+  },
+  findByProductId: function (req, res) {
+    db.Sale.find({ productId: req.params.id })
+      .then(dbSale => res.json(dbSale))
+      .catch(err => res.status(422).json(err));
+  },
   create: function (req, res) {
     db.Sale.create(req.body)
-      .then(function (dbSale) {
-        return db.Product.findOneAndUpdate({ _id: req.params.id }, { $push: { sales: dbSale._id } }, { new: true });
-      })
-      .then(function (dbProduct) {
-        res.render("sales", {
-          productId: req.params.id,
-          sales: dbProduct.sales
-        });
-      })
-      .catch(function (err) {
-        res.json(err);
-      });
+      .then(dbSale => res.json(dbSale))
+      .catch(err => res.status(422).json(err));
   },
   update: function (req, res) {
     db.Sale.updateOne(

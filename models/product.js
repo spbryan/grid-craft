@@ -14,12 +14,6 @@ const productSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Material"
     }
-  ],
-  sales: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Sale"
-    }
   ]
 });
 

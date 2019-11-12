@@ -7,20 +7,25 @@
  ********************************/
 
 const router = require("express").Router();
-const salesController = require("../../controllers/salesController");
+const saleController = require("../../controllers/saleController");
 
 // Matches with "/api/sales"
 router.route("/")
-  .get(salesController.findAll);
+  .get(saleController.findAll)
+  .post(saleController.create);
 
 // Matches with "/api/sales/:id"
 router.route("/:id")
-  .get(salesController.findById)
-  .put(salesController.update)
-  .delete(salesController.remove);
+  .get(saleController.findById)
+  .put(saleController.update)
+  .delete(saleController.remove);
+
+// Matches with "/api/sales/user/:id"
+router.route("/user/:id")
+  .get(saleController.findByUserId);
 
 // Matches with "/api/sales/product/:id"
-router.route("/product/:id")
-  .post(salesController.create)
+router.route("/user/product/:id")
+  .get(saleController.findByProductId);
 
 module.exports = router;

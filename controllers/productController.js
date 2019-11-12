@@ -1,5 +1,5 @@
 /********************************
- * Controller directing data manipulation for Material Model
+ * Controller directing data manipulation for Product Model
  * 
  * @author Sean Bryan
  * 

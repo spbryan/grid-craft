@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const saleSchema = new Schema({
+  userId: { type: String, required: true },
+  productId: { type: String, required: true },
   saleDate: { 
     type: Date, 
     default: Date.now },
