@@ -1,22 +1,22 @@
 /********************************
-  * Page with the song-specific details
+  * Page with the material-specific details
   * 
   * @author Sean Bryan
   * 
-  * 2019-10-29
+  * 2019-11-16
   ********************************/
 import React, { Component } from 'react';
 // import { Redirect } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import SongUpdate from "../components/SongUpdate";
+import MaterialsUpdate from "../components/MaterialsUpdate";
 // import Button from "react-bootstrap/Button";
 // import con from "../utils/const";
 // import API from "../utils/API";
-import './Playlist.css';
+import './Material.css';
 
-class Song extends Component {
+class Material extends Component {
     // constructor(props) {
     //     super(props);
     // }
@@ -37,7 +37,7 @@ class Song extends Component {
 
     state = {
         redirect: false,
-        songData: []
+        materialData: []
     };
 
     /********************
@@ -71,10 +71,10 @@ class Song extends Component {
                 <Container id="container">
                     <Row>
                         <Col align="center">
-                            <h1>{this.props.location.state.song.title}</h1>
+                            <h1>{this.props.location.state.material.name}</h1>
                         </Col>
                     </Row>
-                    <SongUpdate data={this.props.location.state.song} />
+                    <MaterialsUpdate data={this.props.location.state.material} />
                     {/* <Row>
                         <Col align="center">
                             <Button
@@ -90,4 +90,4 @@ class Song extends Component {
     }
 }
 
-export default Song;
+export default Material;

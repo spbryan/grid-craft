@@ -1,5 +1,5 @@
 /********************************
-  * App.js for My Guitar Home
+  * App.js for Match-e-mo
   * 
   * @author Sean Bryan
   * 
@@ -12,15 +12,13 @@ import Container from 'react-bootstrap/Container';
 // import logo from "./logo.svg";
 import Navigation from "./components/Navigation";
 import NavLogin from "./components/NavLogin";
-import SongInput from "./components/SongInput";
+import MaterialsInput from "./components/MaterialsInput";
 import LoginScreen from "./pages/LoginScreen";
 import Home from "./pages/Home";
-import Gear from "./pages/Gear";
-import Playlist from "./pages/Playlist";
-import Practice from "./pages/Practice";
-import Reference from "./pages/Reference";
-import Theory from "./pages/Theory";
-import Song from "./pages/Song";
+import Inventory from "./pages/Inventory";
+import Material from "./pages/Material";
+import Materials from "./pages/Materials";
+import Sales from "./pages/Sales";
 import con from "./utils/const";
 import "./App.css";
 
@@ -67,18 +65,11 @@ class App extends Component {
           <Container id="body">
             <Route exact path="/loginscreen" component={LoginScreen} />
             <Route exact path="/" render={() => <Home updateWhichNav={this.updateWhichNav} />} />
-            <Route exact path="/gear" render={() => <Gear updateWhichNav={this.updateWhichNav}/>} />
-            <Route exact path="/playlist" render={() => <Playlist updateWhichNav={this.updateWhichNav}/>} />
-            <Route exact path="/practice" render={() => <Practice updateWhichNav={this.updateWhichNav}/>} />
-            <Route exact path="/reference" render={() => <Reference updateWhichNav={this.updateWhichNav}/>} />
-            <Route exact path="/theory" render={() => <Theory updateWhichNav={this.updateWhichNav}/>} />
-            <Route exact path="/songInput" render={() => <SongInput updateWhichNav={this.updateWhichNav}/>} />
-            <Route exact path="/song" render={(props) => <Song {...props}/>}/>
-            {/* <Route exact path="/home" render={() => <Home updateWhichNav={this.updateWhichNav} />} />
-              <Route exact path="/loginscreen" component={LoginScreen} />
-              <Route exact path="/admin" render={() => <Admin updateWhichNav={this.updateWhichNav} />} />
-              <Route exact path="/report" render={() => <Report updateWhichNav={this.updateWhichNav} />} />
-              <Route component={NoMatch} /> */}
+            <Route exact path="/inventory" render={() => <Inventory updateWhichNav={this.updateWhichNav}/>} />
+            <Route exact path="/sales" render={() => <Sales updateWhichNav={this.updateWhichNav}/>} />
+            <Route exact path="/materials" render={() => <Materials updateWhichNav={this.updateWhichNav}/>} />
+            <Route exact path="/materialsInput" render={() => <MaterialsInput updateWhichNav={this.updateWhichNav}/>} />
+            <Route exact path="/material" render={(props) => <Material {...props}/>}/>
           </Container>
           {/* <Footer /> */}
         </div>

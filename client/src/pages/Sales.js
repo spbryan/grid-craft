@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import con from "../utils/const";
-import './Theory.css';
+import './Sales.css';
 
-class Theory extends Component {
+class Sales extends Component {
     componentDidMount() {
         if (!sessionStorage.getItem("userID")) {
             this.props.updateWhichNav(con.LOGGED_OUT);
@@ -20,7 +20,7 @@ class Theory extends Component {
                 <Container id="container">
                     <Row>
                         <Col size="md-12">
-                            <h1>Theory</h1>
+                            <h1>Sales</h1>
                         </Col>
                     </Row>
                 </Container>
@@ -29,4 +29,4 @@ class Theory extends Component {
     }
 }
 
-export default Theory;
+export default Sales;

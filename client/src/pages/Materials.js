@@ -1,9 +1,9 @@
 /********************************
-  * Page to inventory personal playlist
+  * Page to inventory materials
   * 
   * @author Sean Bryan
   * 
-  * 2019-10-16
+  * 2019-11-16
   ********************************/
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
@@ -11,12 +11,12 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from "react-bootstrap/Button";
-import SongTable from "../components/SongTable";
+import MaterialsTable from "../components/MaterialsTable";
 import con from "../utils/const";
 import API from "../utils/API";
-import './Playlist.css';
+import './Materials.css';
 
-class Playlist extends Component {
+class Materials extends Component {
     // constructor(props) {
     //     super(props);
     // }
@@ -30,35 +30,35 @@ class Playlist extends Component {
         this.setState({
             redirect: false
         })
-        this.getSongs();
+        this.getMaterials();
     }
 
     state = {
         redirect: false,
-        songData: []
+        materialsData: []
     };
 
     redirectLocation = '';
 
     handleOpenForm = event => {
-        event.preventDefault();this.redirectLocation = '/songinput';
+        event.preventDefault();this.redirectLocation = '/materialsInput';
         this.setState({ redirect: true });  // causes a re-render so put it last
     };
 
     /********************
      * API Router Calls
     ********************/
-    getSongs = () => {
-        API.getSongByUserId(sessionStorage.getItem("userID"))
+    getMaterials = () => {
+        API.getMaterialsByUserId(sessionStorage.getItem("userID"))
             .then(res =>
                 this.setState({
-                    songData: res.data
+                    materialsData: res.data
                 })
             )
             .catch(err => {
-                alert("Playlist Page: get songs error: " + err);
+                alert("Materials Page: get materials error: " + err);
                 this.setState({
-                    songData: []
+                    materialsData: []
                 })
             });
     };
@@ -72,16 +72,16 @@ class Playlist extends Component {
                 <Container id="container">
                     <Row>
                         <Col align="center">
-                            <h1>Playlist</h1>
+                            <h1>Materials</h1>
                         </Col>
                     </Row>
-                    <SongTable data={this.state.songData} />
+                    <MaterialsTable data={this.state.materialsData} />
                     <Row>
                         <Col align="right">
                             <Button
                                 type="button"
                                 className="new-btn ml-4"
-                                onClick={this.handleOpenForm}>Add New Song</Button>
+                                onClick={this.handleOpenForm}>Add Material</Button>
                         </Col>
                     </Row>
                 </Container>
@@ -91,4 +91,4 @@ class Playlist extends Component {
     }
 }
 
-export default Playlist;
+export default Materials;

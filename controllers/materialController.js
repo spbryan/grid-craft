@@ -39,10 +39,10 @@ module.exports = {
           "type": req.body.type,
           "materialUsed": req.body.materialUsed,
           "purchasedFrom": req.body.purchasedFrom,
-          "purchasedUrl": req.body.purchasedUrl,
+          "purchasedLink": req.body.purchasedLink,
           "quantity": req.body.quantity,
           "pricePerUnit": req.body.pricePerUnit,
-          "image": req.body.image
+          "imageLink": req.body.imageLink
         }
       })
       .then(dbMaterial => res.json(dbMaterial))

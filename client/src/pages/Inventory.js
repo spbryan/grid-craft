@@ -3,9 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import con from "../utils/const";
-import './Reference.css';
+import './Inventory.css';
 
-class Reference extends Component {
+class Inventory extends Component {
     componentDidMount() {
         if (!sessionStorage.getItem("userID")) {
             this.props.updateWhichNav(con.LOGGED_OUT);
@@ -20,7 +20,7 @@ class Reference extends Component {
                 <Container id="container">
                     <Row>
                         <Col size="md-12">
-                            <h1>Reference</h1>
+                            <h1>Inventory</h1>
                         </Col>
                     </Row>
                 </Container>
@@ -29,4 +29,4 @@ class Reference extends Component {
     }
 }
 
-export default Reference;
+export default Inventory;

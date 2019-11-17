@@ -1,11 +1,11 @@
 /********************************
-  * API.js for My Guitar Home
+  * API.js for Match-e-Mo
   * 
   * Build http requests from react with axios
   * 
   * @author Sean Bryan
   * 
-  * 2019-10-04
+  * 2019-11-16
   ********************************/
 
 import axios from "axios";
@@ -19,27 +19,27 @@ export default {
     return axios.post("/api/users/login", loginData);
   },
 
-  getSongs: function() {
-    return axios.get("/api/songs");
+  getMaterials: function() {
+    return axios.get("/api/materials");
   },
 
-  addSong: function(songData) {
-    return axios.post("/api/songs", songData);
+  addMaterial: function(materialsData) {
+    return axios.post("/api/materials", materialsData);
   },
 
-  updateSong: function(id, songData) {
-    return axios.put("/api/songs/" + id, songData);
+  updateMaterial: function(id, materialsData) {
+    return axios.put("/api/materials/" + id, materialsData);
   },
 
-  getSongBySongId: function(id) {
-    return axios.get("/api/songs/" + id);
+  getMaterialsByMaterialId: function(id) {
+    return axios.get("/api/materials/" + id);
   },
 
-  getSongByUserId: function(id) {
-    return axios.get("/api/songs/user/" + id);
+  getMaterialsByUserId: function(id) {
+    return axios.get("/api/materials/user/" + id);
   },
 
-  deleteSong: function(id) {
-    return axios.delete("/api/songs/" + id);
+  deleteMaterials: function(id) {
+    return axios.delete("/api/materials/" + id);
   }
 };

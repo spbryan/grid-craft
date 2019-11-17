@@ -7,10 +7,10 @@ const materialSchema = new Schema({
   type: { type: String, required: true },
   materialUsed: { type: String, required: true },
   purchasedFrom: { type: String, required: true },
-  purchasedUrl: { type: String },
+  purchasedLink: { type: String },
   quantity: { type: Number, required: true },
   pricePerUnit: { type: Number, required: true},
-  image: { type: String}
+  imageLink: { type: String}
 });
 
 const Material = mongoose.model("Material", materialSchema);

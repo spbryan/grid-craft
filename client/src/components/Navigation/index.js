@@ -3,7 +3,7 @@
   * 
   * @author Sean Bryan
   * 
-  * 2019-10-16
+  * 2019-11-16
   ********************************/
 
 import React, { Component } from 'react';
@@ -58,24 +58,15 @@ class Navigation extends Component {
                     <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="home" to="/">
                         Home
                     </NavLink>
-                    <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="playlist" to="/playlist">
-                        Playlist
+                    <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="inventory" to="/inventory">
+                        Inventory
                     </NavLink>
-                    <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="practice" to="/practice">
-                        Practice
+                    <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="sales" to="/sales">
+                        Sales
                     </NavLink>
-                    <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="reference" to="/reference">
-                        Reference
+                    <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="materials" to="/materials">
+                        Materials
                     </NavLink>
-                    <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="theory" to="/theory">
-                        Theory
-                    </NavLink>
-                    <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="gear" to="/gear">
-                        Gear
-                    </NavLink>
-                    {/* <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} activeClassName="active" id="login" to="/loginscreen">
-                        Sign-in/Sign-up
-                    </NavLink> */}
                     <NavLink onClick={this.handleLogOut} className="ml-auto" id="logout" to="/">
                         Log Out
                     </NavLink>

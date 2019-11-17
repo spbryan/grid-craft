@@ -1,9 +1,9 @@
 /********************************
-  * Song Table
+  * Materials Table
   * 
   * @author Sean Bryan
   * 
-  * 2019-10-26
+  * 2019-11-16
   ********************************/
 
 import React, { Component } from 'react';
@@ -12,44 +12,44 @@ import DataTable from 'react-data-table-component';
 
 const columns = [
   {
-    name: 'Title',
-    selector: 'title',
+    name: 'Name',
+    selector: 'name',
     sortable: true,
   },
   {
-    name: 'Artist',
-    selector: 'artist',
+    name: 'Type',
+    selector: 'type',
     sortable: true
   },
   {
-    name: 'Genre',
-    selector: 'genre',
+    name: 'Purchased From',
+    selector: 'purchasedFrom',
     sortable: true
   },
   {
-    name: 'Guitar Type',
-    selector: 'guitarType',
+    name: 'Quantity',
+    selector: 'quantity',
     sortable: true
   },
   {
-    name: 'Proficiency',
-    selector: 'proficiencyRating',
+    name: 'Price Per Unit',
+    selector: 'pricePerUnit',
     sortable: true
   },
 ];
 
-class SongTable extends Component {
+class MaterialsTable extends Component {
   state = {
     redirect: false,
-    song: []
+    material: []
   };
 
   redirectLocation = '';
   song = '';
   
   handleClick = (state) => {
-    this.redirectLocation = '/song';
-    this.song = state;
+    this.redirectLocation = '/material';
+    this.material = state;
     this.setState({ 
       redirect: true 
     });  // causes a re-render so put it last
@@ -59,7 +59,7 @@ class SongTable extends Component {
     if (this.state.redirect) {
       return (<Redirect to={{
         pathname: this.redirectLocation,
-        state: { song: this.song }
+        state: { material: this.material }
     }} />)
     }
     return (
@@ -76,4 +76,4 @@ class SongTable extends Component {
   }
 }
 
-export default SongTable;
+export default MaterialsTable;

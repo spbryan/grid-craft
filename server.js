@@ -34,7 +34,7 @@ require("./config/passport/passport.js")(passport, db.User);
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/lavenderblue",
+  process.env.MONGODB_URI || "mongodb://localhost/gridcraftdb",
   {
     useCreateIndex: true,
     useNewUrlParser: true,
