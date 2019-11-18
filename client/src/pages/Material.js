@@ -10,7 +10,7 @@ import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import MaterialsUpdate from "../components/MaterialsUpdate";
+import MaterialUpdate from "../components/MaterialUpdate";
 // import Button from "react-bootstrap/Button";
 // import con from "../utils/const";
 // import API from "../utils/API";
@@ -74,7 +74,7 @@ class Material extends Component {
                             <h1>{this.props.location.state.material.name}</h1>
                         </Col>
                     </Row>
-                    <MaterialsUpdate data={this.props.location.state.material} />
+                    <MaterialUpdate data={this.props.location.state.material} />
                     {/* <Row>
                         <Col align="center">
                             <Button

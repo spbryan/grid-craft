@@ -39,7 +39,31 @@ export default {
     return axios.get("/api/materials/user/" + id);
   },
 
-  deleteMaterials: function(id) {
+  deleteMaterial: function(id) {
     return axios.delete("/api/materials/" + id);
+  },
+
+  getProducts: function() {
+    return axios.get("/api/products");
+  },
+
+  addProduct: function(productData) {
+    return axios.post("/api/products", productData);
+  },
+
+  updateProduct: function(id, productData) {
+    return axios.put("/api/products/" + id, productData);
+  },
+
+  getProductByProductId: function(id) {
+    return axios.get("/api/products/" + id);
+  },
+
+  getProductsByUserId: function(id) {
+    return axios.get("/api/products/user/" + id);
+  },
+
+  deleteProduct: function(id) {
+    return axios.delete("/api/products/" + id);
   }
 };

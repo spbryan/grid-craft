@@ -12,7 +12,8 @@ import Container from 'react-bootstrap/Container';
 // import logo from "./logo.svg";
 import Navigation from "./components/Navigation";
 import NavLogin from "./components/NavLogin";
-import MaterialsInput from "./components/MaterialsInput";
+import MaterialInput from "./components/MaterialInput";
+import ProductInput from "./components/ProductInput";
 import LoginScreen from "./pages/LoginScreen";
 import Home from "./pages/Home";
 import Inventory from "./pages/Inventory";
@@ -68,8 +69,9 @@ class App extends Component {
             <Route exact path="/inventory" render={() => <Inventory updateWhichNav={this.updateWhichNav}/>} />
             <Route exact path="/sales" render={() => <Sales updateWhichNav={this.updateWhichNav}/>} />
             <Route exact path="/materials" render={() => <Materials updateWhichNav={this.updateWhichNav}/>} />
-            <Route exact path="/materialsInput" render={() => <MaterialsInput updateWhichNav={this.updateWhichNav}/>} />
+            <Route exact path="/materialInput" render={() => <MaterialInput updateWhichNav={this.updateWhichNav}/>} />
             <Route exact path="/material" render={(props) => <Material {...props}/>}/>
+            <Route exact path="/productInput" render={() => <ProductInput updateWhichNav={this.updateWhichNav}/>} />
           </Container>
           {/* <Footer /> */}
         </div>
