@@ -18,6 +18,7 @@ import LoginScreen from "./pages/LoginScreen";
 import Home from "./pages/Home";
 import Inventory from "./pages/Inventory";
 import Material from "./pages/Material";
+import Product from "./pages/Product";
 import Materials from "./pages/Materials";
 import Sales from "./pages/Sales";
 import con from "./utils/const";
@@ -71,6 +72,7 @@ class App extends Component {
             <Route exact path="/materials" render={() => <Materials updateWhichNav={this.updateWhichNav}/>} />
             <Route exact path="/materialInput" render={() => <MaterialInput updateWhichNav={this.updateWhichNav}/>} />
             <Route exact path="/material" render={(props) => <Material {...props}/>}/>
+            <Route exact path="/product" render={(props) => <Product {...props}/>}/>
             <Route exact path="/productInput" render={() => <ProductInput updateWhichNav={this.updateWhichNav}/>} />
           </Container>
           {/* <Footer /> */}

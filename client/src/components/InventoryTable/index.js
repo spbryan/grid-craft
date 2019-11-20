@@ -38,7 +38,7 @@ const columns = [
   },
 ];
 
-class MaterialsTable extends Component {
+class InventoryTable extends Component {
   state = {
     redirect: false,
     material: []
@@ -76,4 +76,4 @@ class MaterialsTable extends Component {
   }
 }
 
-export default MaterialsTable;
+export default InventoryTable;

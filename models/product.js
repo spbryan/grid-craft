@@ -8,11 +8,10 @@ const productSchema = new Schema({
   currentCount: { type: Number, default: 0 },
   pricePerUnit: { type: Number, default: 0},
   netCostPerUnit: { type: Number, default: 0},
-  image: { type: String},
-  materials: [
+  imageLink: { type: String},
+  materialIds: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Material"
+      type: String
     }
   ]
 });

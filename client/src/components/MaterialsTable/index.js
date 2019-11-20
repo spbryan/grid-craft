@@ -45,13 +45,13 @@ class MaterialsTable extends Component {
   };
 
   redirectLocation = '';
-  song = '';
-  
+  // song = '';
+
   handleClick = (state) => {
     this.redirectLocation = '/material';
     this.material = state;
-    this.setState({ 
-      redirect: true 
+    this.setState({
+      redirect: true
     });  // causes a re-render so put it last
   };
 
@@ -60,7 +60,7 @@ class MaterialsTable extends Component {
       return (<Redirect to={{
         pathname: this.redirectLocation,
         state: { material: this.material }
-    }} />)
+      }} />)
     }
     return (
       <DataTable
