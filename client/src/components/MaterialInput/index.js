@@ -17,21 +17,26 @@ import Col from "react-bootstrap/Col";
 class MaterialsInput extends Component {
 
   state = {
+    materialId: 1,
     userId: '',
     name: '',
     type: '',
-    materialUse: '',
+    gauge: '',
+    length: '',
     purchasedFrom: '',
     purchasedLink: '',
     quantity: 0,
+    price: 0,
     pricePerUnit: 0,
     imageLink: '',
     redirect: false
   };
 
   componentDidMount() {
+    console.log("<debug> " + this.props.location.state.materialId);
     this.setState({
       userId: sessionStorage.userID,
+      materialId: this.props.location.state.materialId,
       redirect: false
     })
   }
@@ -87,11 +92,26 @@ class MaterialsInput extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm={6}>
+          <Col>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridMaterialUsed">
-                <Form.Label>Material Used</Form.Label>
-                <Form.Control type="materialUsed" name="materialUsed" placeholder={this.state.materialUsed} onChange={this.handleInputChange} />
+              <Form.Group as={Col} controlId="formGridGauge">
+                <Form.Label>Gauge</Form.Label>
+                <Form.Control as="select" name="gauge" onChange={this.handleInputChange}>
+                  <option>{this.state.gauge}</option>
+                  <option>24</option>
+                  <option>22</option>
+                  <option>21</option>
+                  <option>20</option>
+                  <option>18</option>
+                </Form.Control>
+                </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridLength">
+                <Form.Label>Length</Form.Label>
+                <Form.Control type="length" name="length" placeholder={this.state.length} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -105,9 +125,27 @@ class MaterialsInput extends Component {
           </Col>
           <Col>
             <Form.Row>
+              <Form.Group as={Col} controlId="formGridPrice">
+                <Form.Label>Total Price</Form.Label>
+                <Form.Control type="price" name="price" placeholder={"$ " + this.state.price} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
               <Form.Group as={Col} controlId="formGridPricePerUnit">
                 <Form.Label>Price Per Unit</Form.Label>
                 <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNotes">
+                <Form.Label>Additional Details</Form.Label>
+                <Form.Control type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>

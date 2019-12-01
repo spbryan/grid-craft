@@ -2,13 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const materialSchema = new Schema({
+  materialId: {type: Number, required: true, unique: true},
   userId: { type: String, required: true },
   name: { type: String, required: true },
   type: { type: String, required: true },
-  materialUsed: { type: String, required: true },
+  gauge: { type: String },
+  length: { type: String },
+  notes: {type: String},
   purchasedFrom: { type: String, required: true },
   purchasedLink: { type: String },
   quantity: { type: Number, required: true },
+  price: { type: Number, required: true },
   pricePerUnit: { type: Number, required: true},
   imageLink: { type: String}
 });

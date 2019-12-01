@@ -40,8 +40,7 @@ module.exports = {
           "currentCount": req.body.currentCount,
           "pricePerUnit": req.body.price,
           "netCostPerUnit": req.body.netCostPerUnit,
-          "materials": req.body.materials,
-          "image": req.body.image
+          "imageLink": req.body.image
         }
       })
       .then(dbProduct => res.json(dbProduct))

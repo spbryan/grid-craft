@@ -24,6 +24,11 @@ module.exports = {
       .then(dbMaterial => res.json(dbMaterial))
       .catch(err => res.status(422).json(err));
   },
+  findByMaterialId: function (req, res) {
+    db.Material.find({ materialId: req.params.id })
+      .then(dbMaterial => res.json(dbMaterial))
+      .catch(err => res.status(422).json(err));
+  },
   create: function (req, res) {
     db.Material.create(req.body)
       .then(dbMaterial => res.json(dbMaterial))
@@ -37,10 +42,13 @@ module.exports = {
         {
           "name": req.body.name,
           "type": req.body.type,
-          "materialUsed": req.body.materialUsed,
+          "gauge": req.body.gauge,
+          "length": req.body.length,
+          "notes": req.body.length,
           "purchasedFrom": req.body.purchasedFrom,
           "purchasedLink": req.body.purchasedLink,
           "quantity": req.body.quantity,
+          "price": req.body.price,
           "pricePerUnit": req.body.pricePerUnit,
           "imageLink": req.body.imageLink
         }

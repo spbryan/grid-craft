@@ -8,12 +8,7 @@ const productSchema = new Schema({
   currentCount: { type: Number, default: 0 },
   pricePerUnit: { type: Number, default: 0},
   netCostPerUnit: { type: Number, default: 0},
-  imageLink: { type: String},
-  materialIds: [
-    {
-      type: String
-    }
-  ]
+  imageLink: { type: String}
 });
 
 const Product = mongoose.model("Product", productSchema);

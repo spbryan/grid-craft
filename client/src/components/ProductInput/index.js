@@ -48,7 +48,7 @@ class ProductInput extends Component {
       .then(res => {
         console.log(res.data);
         this.product = res.data;
-        this.redirectLocation = '/product';
+        this.redirectLocation = '/product/material';
         this.setState({ redirect: true });  // causes a re-render so put it last
       })
       .catch(err => {
