@@ -12,6 +12,11 @@ import DataTable from 'react-data-table-component';
 
 const columns = [
   {
+    name: 'Material ID',
+    selector: 'materialId',
+    sortable: true,
+  },
+  {
     name: 'Name',
     selector: 'name',
     sortable: true,
@@ -22,6 +27,16 @@ const columns = [
     sortable: true
   },
   {
+    name: 'Gauge',
+    selector: 'gauge',
+    sortable: true
+  },
+  {
+    name: 'Length',
+    selector: 'length',
+    sortable: true
+  },
+  {
     name: 'Purchased From',
     selector: 'purchasedFrom',
     sortable: true
@@ -29,6 +44,11 @@ const columns = [
   {
     name: 'Quantity',
     selector: 'quantity',
+    sortable: true
+  },
+  {
+    name: 'Price',
+    selector: 'price',
     sortable: true
   },
   {

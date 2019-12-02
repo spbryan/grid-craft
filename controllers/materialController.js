@@ -44,7 +44,7 @@ module.exports = {
           "type": req.body.type,
           "gauge": req.body.gauge,
           "length": req.body.length,
-          "notes": req.body.length,
+          "notes": req.body.notes,
           "purchasedFrom": req.body.purchasedFrom,
           "purchasedLink": req.body.purchasedLink,
           "quantity": req.body.quantity,

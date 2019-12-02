@@ -69,11 +69,11 @@ class Material extends Component {
         return (
             <div>
                 <Container id="container">
-                    <Row>
+                    {/* <Row>
                         <Col align="center">
                             <h1>{this.props.location.state.material.name}</h1>
                         </Col>
-                    </Row>
+                    </Row> */}
                     <MaterialUpdate data={this.props.location.state.material} />
                     {/* <Row>
                         <Col align="center">

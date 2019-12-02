@@ -16,32 +16,39 @@ import Col from "react-bootstrap/Col";
 
 class SongUpdate extends Component {
   state = {
+    materialId: 0,
     userId: '',
     _id: '',
     name: '',
     type: '',
-    materialUsed: '',
+    gauge: '',
+    length: '',
+    notes: '',
     purchasedFrom: '',
     purchasedLink: '',
     quantity: 0,
     pricePerUnit: 0,
+    price: 0,
     imageLink: '',
     redirect: false
   };
 
 
   componentDidMount() {
-    console.log("spb" + JSON.stringify(this.props.data));
     this.setState({
+      materialId: this.props.data.materialId,
       userId: this.props.data.userId,
       _id: this.props.data._id,
       name: this.props.data.name,
       type: this.props.data.type,
-      materialUsed: this.props.data.materialUsed,
+      gauge: this.props.data.gauge,
+      length: this.props.data.length,
+      notes: this.props.data.notes,
       purchasedFrom: this.props.data.purchasedFrom,
       purchasedLink: this.props.data.purchasedLink,
       quantity: this.props.data.quantity,
       pricePerUnit: this.props.data.pricePerUnit,
+      price: this.props.data.price,
       imageLink: this.props.data.imageLink,
       redirect: false
     })
@@ -92,6 +99,9 @@ class SongUpdate extends Component {
     }
     return (
       <div className="inner-container">
+        <h2 align="right" className="header">
+          {this.state.name + "   (Item #" + this.state.materialId + ")"} 
+        </h2>
         <Row>
           <Col>
             <Form.Row>
@@ -111,11 +121,26 @@ class SongUpdate extends Component {
           </Col>
         </Row>
         <Row>
-          <Col sm={6}>
+          <Col>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridMaterialUsed">
-                <Form.Label>Material Used</Form.Label>
-                <Form.Control type="materialUsed" name="materialUsed" placeholder={this.state.materialUsed} onChange={this.handleInputChange} />
+              <Form.Group as={Col} controlId="formGridGauge">
+                <Form.Label>Gauge</Form.Label>
+                <Form.Control as="select" name="gauge" onChange={this.handleInputChange}>
+                  <option>{this.state.gauge}</option>
+                  <option>24</option>
+                  <option>22</option>
+                  <option>21</option>
+                  <option>20</option>
+                  <option>18</option>
+                </Form.Control>
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridLength">
+                <Form.Label>Length</Form.Label>
+                <Form.Control type="length" name="length" placeholder={this.state.length} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -129,9 +154,27 @@ class SongUpdate extends Component {
           </Col>
           <Col>
             <Form.Row>
+              <Form.Group as={Col} controlId="formGridPrice">
+                <Form.Label>Total Price</Form.Label>
+                <Form.Control type="price" name="price" placeholder={"$ " + this.state.price} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
               <Form.Group as={Col} controlId="formGridPricePerUnit">
                 <Form.Label>Price Per Unit</Form.Label>
                 <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNotes">
+                <Form.Label>Additional Details</Form.Label>
+                <Form.Control as="textarea" rows="3" type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>

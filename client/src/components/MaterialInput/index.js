@@ -145,7 +145,8 @@ class MaterialsInput extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridNotes">
                 <Form.Label>Additional Details</Form.Label>
-                <Form.Control type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} />
+                <Form.Control as="textarea" rows="3" type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange}/>
+                {/* <Form.Control type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} /> */}
               </Form.Group>
             </Form.Row>
           </Col>
