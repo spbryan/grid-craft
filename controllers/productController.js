@@ -41,7 +41,7 @@ module.exports = {
           "findings": req.body.findings,
           "numberAvailable": req.body.numberAvailable,
           "numberSold": req.body.numberSold,
-          "pricePerUnit": req.body.price,
+          "pricePerUnit": req.body.pricePerUnit,
           "netCostPerUnit": req.body.netCostPerUnit,
           "imageLink": req.body.imageLink
         }

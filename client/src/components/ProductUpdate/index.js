@@ -94,6 +94,9 @@ class ProductUpdate extends Component {
     }
     return (
       <div className="inner-container">
+        <h2 align="right" className="header">
+          {"Product Information"}
+        </h2>
         <Row>
           <Col>
             <Form.Row>
@@ -131,6 +134,32 @@ class ProductUpdate extends Component {
           </Col>
         </Row>
         <Row>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNumberAvailable">
+                <Form.Label>Number Available</Form.Label>
+                <Form.Control type="numberAvailable" name="numberAvailable" placeholder={this.state.numberAvailable} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNumberSold">
+                <Form.Label>Number Sold</Form.Label>
+                <Form.Control readOnly="true" type="numberSold" name="numberSold" placeholder={this.state.numberSold} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridPricePerUnit">
+                <Form.Label>Price Per Unit</Form.Label>
+                <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+        </Row>
+        <Row>
           <Col sm={2}></Col>
           <Col>
             <Form.Row>
@@ -154,6 +183,9 @@ class ProductUpdate extends Component {
               onClick={this.handleDelete}>Delete</Button>
           </Col>
         </Row>
+        <h2 align="right" className="header">
+          {"Materials Used"}
+        </h2>
       </div>
     );
   }

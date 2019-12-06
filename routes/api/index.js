@@ -4,7 +4,6 @@ const materialRoutes = require("./materials");
 const productRoutes = require("./products");
 const userRoutes = require("./users");
 const salesRoutes = require("./sales");
-const pmlRoutes = require("./pml");
 
 // User routes
 router.use("/users", userRoutes);
@@ -17,9 +16,6 @@ router.use("/products", productRoutes);
 
 // Sales Routes
 router.use("/sales", salesRoutes);
-
-// PML (Product Material Link) Routes
-router.use("/pml", pmlRoutes);
 
 // For anything else, render the html page
 router.use(function(req, res) {
