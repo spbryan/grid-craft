@@ -11,7 +11,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Button from "react-bootstrap/Button";
-import InventoryTable from "../components/InventoryTable";
+import ProductsTable from "../components/ProductsTable";
 import con from "../utils/const";
 import API from "../utils/API";
 import './Inventory.css';
@@ -31,7 +31,7 @@ class Inventory extends Component {
 
     state = {
         redirect: false,
-        inventoryData: []
+        productsData: []
     };
 
     redirectLocation = '';
@@ -48,13 +48,13 @@ class Inventory extends Component {
         API.getProductsByUserId(sessionStorage.getItem("userID"))
             .then(res =>
                 this.setState({
-                    inventoryData: res.data
+                    productsData: res.data
                 })
             )
             .catch(err => {
                 alert("Inventory Page: get products error: " + err);
                 this.setState({
-                    inventoryData: []
+                    productsData: []
                 })
             });
     };
@@ -71,7 +71,7 @@ class Inventory extends Component {
                             <h1>Inventory</h1>
                         </Col>
                     </Row>
-                    <InventoryTable data={this.state.inventoryData} />
+                    <ProductsTable data={this.state.productsData} />
                     <Row>
                         <Col align="right">
                             <Button

@@ -20,11 +20,13 @@ class ProductInput extends Component {
     userId: '',
     type: '',
     description: '',
-    currentCount: 0,
+    focalBead: '',
+    findings: '',
+    numberAvailable: 0,
+    numberSold: 0,
     pricePerUnit: 0,
     netCostPerUnit: 0,
     imageLink: '',
-    materialIds: [],
     redirect: false
   };
 
@@ -48,7 +50,7 @@ class ProductInput extends Component {
       .then(res => {
         console.log(res.data);
         this.product = res.data;
-        this.redirectLocation = '/product/material';
+        this.redirectLocation = '/product';
         this.setState({ redirect: true });  // causes a re-render so put it last
       })
       .catch(err => {
@@ -66,24 +68,11 @@ class ProductInput extends Component {
         state: { product: this.product }
       }} />)
     }
-    // if (this.state.redirect) {
-    //   return <Redirect to={this.redirectLocation} />;
-    // }
     return (
       <div className="inner-container">
         <h2 align="center" className="header">
           Enter a Product
         </h2>
-        <Row>
-          <Col>
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridDescription">
-                <Form.Label>Description</Form.Label>
-                <Form.Control type="description" name="description" placeholder={this.state.description} onChange={this.handleInputChange} />
-              </Form.Group>
-            </Form.Row>
-          </Col>
-        </Row>
         <Row>
           <Col>
             <Form.Row>
@@ -93,19 +82,29 @@ class ProductInput extends Component {
               </Form.Group>
             </Form.Row>
           </Col>
-          <Col>
+          <Col sm={3}>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridCurrentCount">
-                <Form.Label>Starting Count</Form.Label>
-                <Form.Control type="currentCount" name="currentCount" placeholder={this.state.currentCount} onChange={this.handleInputChange} />
+              <Form.Group as={Col} controlId="formGridFindings">
+                <Form.Label>Findings</Form.Label>
+                <Form.Control type="findings" name="findings" placeholder={this.state.findings} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
-          <Col>
+          <Col sm={3}>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridPricePerUnit">
-                <Form.Label>Price Per Unit</Form.Label>
-                <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
+              <Form.Group as={Col} controlId="formGridFocalBead">
+                <Form.Label>Focal Bead</Form.Label>
+                <Form.Control type="focalBead" name="focalBead" placeholder={this.state.focalBead} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+        </Row>
+        <Row>
+        <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridDescription">
+                <Form.Label>Description</Form.Label>
+                <Form.Control as="textarea" rows="3" type="description" name="description" placeholder={this.state.description} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -127,7 +126,7 @@ class ProductInput extends Component {
             <Button
               type="button"
               className="new-btn ml-4"
-              onClick={this.handleFormSubmit}>Submit</Button>
+              onClick={this.handleFormSubmit}>Next</Button>
           </Col>
         </Row>
       </div>

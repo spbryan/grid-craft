@@ -59,7 +59,7 @@ class Navigation extends Component {
                         Home
                     </NavLink>
                     <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="inventory" to="/inventory">
-                        Inventory
+                        Products
                     </NavLink>
                     <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} id="sales" to="/sales">
                         Sales

@@ -18,13 +18,14 @@ class ProductUpdate extends Component {
   state = {
     userId: '',
     _id: '',
-    name: '',
     type: '',
-    materialUsed: '',
-    purchasedFrom: '',
-    purchasedLink: '',
-    quantity: 0,
+    description: '',
+    focalBead: '',
+    findings: '',
+    numberAvailable: 0,
+    numberSold: 0,
     pricePerUnit: 0,
+    netCostPerUnit: 0,
     imageLink: '',
     redirect: false
   };
@@ -35,13 +36,14 @@ class ProductUpdate extends Component {
     this.setState({
       userId: this.props.data.userId,
       _id: this.props.data._id,
-      name: this.props.data.name,
       type: this.props.data.type,
-      materialUsed: this.props.data.materialUsed,
-      purchasedFrom: this.props.data.purchasedFrom,
-      purchasedLink: this.props.data.purchasedLink,
-      quantity: this.props.data.quantity,
+      description: this.props.data.description,
+      focalBead: this.props.data.focalBead,
+      findings: this.props.data.findings,
+      numberAvailable: this.props.data.numberAvailable,
+      numberSold: this.props.data.numberSold,
       pricePerUnit: this.props.data.pricePerUnit,
+      netCostPerUnit: this.props.data.netCostPerUnit,
       imageLink: this.props.data.imageLink,
       redirect: false
     })
@@ -56,14 +58,14 @@ class ProductUpdate extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    API.updateMaterial(this.state._id, this.state)
+    API.updateProduct(this.state._id, this.state)
       .then(res => {
         console.log(res.data);
-        this.redirectLocation = '/materials';
+        this.redirectLocation = '/inventory';
         this.setState({ redirect: true });  // causes a re-render so put it last
       })
       .catch(err => {
-        console.log("in catch for submit material form");
+        console.log("in catch for submit product form");
         console.log(err);
         this.redirectLocation = '/authfailure';
         this.setState({ redirect: true });   // causes a re-render so put it last
@@ -72,14 +74,14 @@ class ProductUpdate extends Component {
 
   handleDelete = event => {
     event.preventDefault();
-    API.deleteMaterial(this.state._id)
+    API.deleteProduct(this.state._id)
       .then(res => {
         console.log(res.data);
-        this.redirectLocation = '/materials';
+        this.redirectLocation = '/inventory';
         this.setState({ redirect: true });  // causes a re-render so put it last
       })
       .catch(err => {
-        console.log("in catch for delete material form");
+        console.log("in catch for delete product form");
         console.log(err);
         this.redirectLocation = '/authfailure';
         this.setState({ redirect: true });   // causes a re-render so put it last
@@ -95,43 +97,25 @@ class ProductUpdate extends Component {
         <Row>
           <Col>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridName">
-                <Form.Label>Material Name</Form.Label>
-                <Form.Control type="name" name="name" placeholder={this.state.name} onChange={this.handleInputChange} />
-              </Form.Group>
-            </Form.Row>
-          </Col>
-          <Col>
-            <Form.Row>
               <Form.Group as={Col} controlId="formGridType">
-                <Form.Label>Material Type</Form.Label>
+                <Form.Label>Type</Form.Label>
                 <Form.Control type="type" name="type" placeholder={this.state.type} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
-        </Row>
-        <Row>
-          <Col sm={6}>
+          <Col sm={3}>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridMaterialUsed">
-                <Form.Label>Material Used</Form.Label>
-                <Form.Control type="materialUsed" name="materialUsed" placeholder={this.state.materialUsed} onChange={this.handleInputChange} />
+              <Form.Group as={Col} controlId="formGridFindings">
+                <Form.Label>Findings</Form.Label>
+                <Form.Control type="findings" name="findings" placeholder={this.state.findings} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
-          <Col>
+          <Col sm={3}>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridQuantity">
-                <Form.Label>Quantity</Form.Label>
-                <Form.Control type="quantity" name="quantity" placeholder={this.state.quantity} onChange={this.handleInputChange} />
-              </Form.Group>
-            </Form.Row>
-          </Col>
-          <Col>
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridPricePerUnit">
-                <Form.Label>Price Per Unit</Form.Label>
-                <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
+              <Form.Group as={Col} controlId="formGridFocalBead">
+                <Form.Label>Focal Bead</Form.Label>
+                <Form.Control type="focalBead" name="focalBead" placeholder={this.state.focalBead} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -139,17 +123,9 @@ class ProductUpdate extends Component {
         <Row>
           <Col>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridPurchasedFrom">
-                <Form.Label>Purchased From</Form.Label>
-                <Form.Control type="purchasedFrom" name="purchasedFrom" placeholder={this.state.purchasedFrom} onChange={this.handleInputChange} />
-              </Form.Group>
-            </Form.Row>
-          </Col>
-          <Col>
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridPurchasedLink">
-                <Form.Label>Purchased From URL</Form.Label>
-                <Form.Control type="purchasedLink" name="purchasedLink" placeholder={this.state.purchasedLink} onChange={this.handleInputChange} />
+              <Form.Group as={Col} controlId="formGridDescription">
+                <Form.Label>Description</Form.Label>
+                <Form.Control as="textarea" rows="3" type="description" name="description" placeholder={this.state.description} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>

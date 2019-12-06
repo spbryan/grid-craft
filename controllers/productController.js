@@ -37,10 +37,13 @@ module.exports = {
         {
           "type": req.body.type,
           "description": req.body.description,
-          "currentCount": req.body.currentCount,
+          "focalBead": req.body.focalBead,
+          "findings": req.body.findings,
+          "numberAvailable": req.body.numberAvailable,
+          "numberSold": req.body.numberSold,
           "pricePerUnit": req.body.price,
           "netCostPerUnit": req.body.netCostPerUnit,
-          "imageLink": req.body.image
+          "imageLink": req.body.imageLink
         }
       })
       .then(dbProduct => res.json(dbProduct))

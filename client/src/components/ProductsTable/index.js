@@ -1,9 +1,9 @@
 /********************************
-  * Invewntory Table
+  * Products Table
   * 
   * @author Sean Bryan
   * 
-  * 2019-11-16
+  * 2019-12-06
   ********************************/
 
 import React, { Component } from 'react';
@@ -12,46 +12,56 @@ import DataTable from 'react-data-table-component';
 
 const columns = [
   {
-    name: 'Name',
-    selector: 'name',
+    name: 'Type',
+    selector: 'type',
     sortable: true,
   },
   {
-    name: 'Type',
-    selector: 'type',
+    name: 'Description',
+    selector: 'description',
+    sortable: true,
+  },
+  {
+    name: 'Focal Bead',
+    selector: 'focalBead',
     sortable: true
   },
   {
-    name: 'Purchased From',
-    selector: 'purchasedFrom',
+    name: 'Findings',
+    selector: 'findings',
     sortable: true
   },
   {
-    name: 'Quantity',
-    selector: 'quantity',
+    name: 'Number Available',
+    selector: 'numberAvailable',
+    sortable: true
+  },
+  {
+    name: 'Number Sold',
+    selector: 'numberSold',
     sortable: true
   },
   {
     name: 'Price Per Unit',
     selector: 'pricePerUnit',
     sortable: true
-  },
+  }
 ];
 
-class InventoryTable extends Component {
+class ProductsTable extends Component {
   state = {
     redirect: false,
-    material: []
+    product: []
   };
 
   redirectLocation = '';
-  song = '';
-  
+  // song = '';
+
   handleClick = (state) => {
-    this.redirectLocation = '/material';
-    this.material = state;
-    this.setState({ 
-      redirect: true 
+    this.redirectLocation = '/product';
+    this.product = state;
+    this.setState({
+      redirect: true
     });  // causes a re-render so put it last
   };
 
@@ -59,8 +69,8 @@ class InventoryTable extends Component {
     if (this.state.redirect) {
       return (<Redirect to={{
         pathname: this.redirectLocation,
-        state: { material: this.material }
-    }} />)
+        state: { product: this.product }
+      }} />)
     }
     return (
       <DataTable
@@ -76,4 +86,4 @@ class InventoryTable extends Component {
   }
 }
 
-export default InventoryTable;
+export default ProductsTable;
