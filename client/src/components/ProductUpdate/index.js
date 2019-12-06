@@ -104,9 +104,10 @@ class ProductUpdate extends Component {
     }
     return (
       <div className="inner-container">
-        <h2 align="right" className="header">
+        <h2 align="right" className="header">      
           {"Product Information"}
         </h2>
+        <img class="center" align="center" src={this.state.imageLink} alt={this.state.type}/>
         <Row>
           <Col>
             <Form.Row>
