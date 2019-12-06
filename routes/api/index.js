@@ -1,6 +1,7 @@
 const path = require("path");
 const router = require("express").Router();
 const materialRoutes = require("./materials");
+const materialsUsedRoutes = require("./materialsUsed");
 const productRoutes = require("./products");
 const userRoutes = require("./users");
 const salesRoutes = require("./sales");
@@ -13,6 +14,9 @@ router.use("/materials", materialRoutes);
 
 // Product Routes
 router.use("/products", productRoutes);
+
+// Materials Used Routes
+router.use("/materials/used", materialsUsedRoutes);
 
 // Sales Routes
 router.use("/sales", salesRoutes);

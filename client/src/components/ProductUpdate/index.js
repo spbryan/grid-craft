@@ -88,6 +88,16 @@ class ProductUpdate extends Component {
       });
   }
 
+  handleAddMaterial = event => {
+    event.preventDefault();
+    console.log("adding material")
+  }
+
+  handleAddSales = event => {
+    event.preventDefault();
+    console.log("adding sales")
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.redirectLocation} />;
@@ -146,7 +156,7 @@ class ProductUpdate extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridNumberSold">
                 <Form.Label>Number Sold</Form.Label>
-                <Form.Control readOnly="true" type="numberSold" name="numberSold" placeholder={this.state.numberSold} onChange={this.handleInputChange} />
+                <Form.Control readOnly={true} type="numberSold" name="numberSold" placeholder={this.state.numberSold} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -186,6 +196,25 @@ class ProductUpdate extends Component {
         <h2 align="right" className="header">
           {"Materials Used"}
         </h2>
+        <Row>
+          <Col className="form-button" align="center">
+            <Button
+              type="button"
+              className="new-btn ml-4"
+              onClick={this.handleAddMaterial}>Add Material</Button>
+          </Col>
+        </Row>
+        <h2 align="right" className="header">
+          {"Sales"}
+        </h2>
+        <Row>
+          <Col className="form-button" align="center">
+            <Button
+              type="button"
+              className="new-btn ml-4"
+              onClick={this.handleAddSales}>Add Sales</Button>
+          </Col>
+        </Row>
       </div>
     );
   }
