@@ -31,12 +31,12 @@ class ProductUpdate extends Component {
     imageLink: '',
     redirect: false,
     materialNumber: 0,
-    materialQuantity: 0
+    materialQuantity: 0,
+    materialsUsed: []
   };
 
 
   componentDidMount() {
-    console.log("spb" + JSON.stringify(this.props.data));
     this.setState({
       productNumber: this.props.data.productNumber,
       userId: this.props.data.userId,
@@ -95,9 +95,46 @@ class ProductUpdate extends Component {
 
   handleAddMaterial = event => {
     event.preventDefault();
-    console.log("adding material");
-    console.log("material ID: " + this.state.materialNumber);
-    console.log("material Quantity: " + this.state.materialQuantity);
+    API.getMaterialsByMaterialNumber(this.state.materialNumber)
+      .then(res => {
+        res.data.forEach(element => {
+          var materialUsed = {
+            userId: element.userId,
+            materialNumber: element.materialNumber,
+            materialId: element._id,
+            productId: this.state._id,
+            quantity: this.state.materialQuantity,
+            pricePerUnit: element.pricePerUnit
+          };
+          API.addMaterialUsed(materialUsed)
+            .then(res => {
+              API.getMaterialsUsedByProductId(this.state._id)
+                .then(res => {
+                  this.setState({
+                    materialsUsed: res.data
+                  });
+                }
+                )
+                .catch(err => {
+                  alert("Products Page: get materials used error: " + err);
+                  this.setState({
+                    materialsUsed: []
+                  })
+                });
+            })
+            .catch(err => {
+              console.log("in catch for submit materials used form");
+              console.log(err);
+              this.redirectLocation = '/authfailure';
+              this.setState({ redirect: true });   // causes a re-render so put it last
+            });
+        });
+      })
+      .catch(err => {
+        console.log("in catch for get material by number form");
+        console.log(err);
+        this.redirectLocation = '/authfailure';
+      });
   }
 
   handleAddSales = event => {

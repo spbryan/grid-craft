@@ -69,5 +69,13 @@ export default {
 
   deleteProduct: function(id) {
     return axios.delete("/api/products/" + id);
+  },
+
+  addMaterialUsed: function(materialUsedData) {
+    return axios.post("/api/materials/used/", materialUsedData);
+  },
+
+  getMaterialsUsedByProductId: function(id) {
+    return axios.get("/api/materials/used/product/" + id);
   }
 };

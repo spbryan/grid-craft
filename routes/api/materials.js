@@ -24,12 +24,8 @@ router.route("/:id")
 router.route("/user/:id")
   .get(materialController.findByUserId)
 
-// Matches with "/api/materials/material/:id"
-router.route("/material/:id")
-  .get(materialController.findByMaterialId)
-
-// Matches with "/api/materials/material/number/:id"
-router.route("/material/number/:id")
+// Matches with "/api/materials/material/num/:id"
+router.route("/number/:id")
   .get(materialController.findByMaterialNumber)
 
 module.exports = router;
