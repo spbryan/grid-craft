@@ -31,15 +31,27 @@ class Inventory extends Component {
 
     state = {
         redirect: false,
-        productsData: []
+        productsData: [],
+        nextProductNumber: 1
     };
 
     redirectLocation = '';
 
     handleOpenForm = event => {
         event.preventDefault(); this.redirectLocation = '/productInput';
+        this.determineNextProductNumber();
         this.setState({ redirect: true });  // causes a re-render so put it last
     };
+
+    determineNextProductNumber = () => {
+        var nextHighest = 1;
+        this.state.productsData.forEach(element => {
+            if (nextHighest <= element.productNumber) {
+                nextHighest = element.productNumber + 1;
+            }
+        });
+        this.setState({ nextProductNumber: nextHighest });
+    }
 
     /********************
     * API Router Calls
@@ -60,8 +72,14 @@ class Inventory extends Component {
     };
 
     render() {
+        // if (this.state.redirect) {
+        //     return <Redirect to={this.redirectLocation} />;
+        // }
         if (this.state.redirect) {
-            return <Redirect to={this.redirectLocation} />;
+            return (<Redirect to={{
+                pathname: this.redirectLocation,
+                state: { productNumber: this.state.nextProductNumber }
+            }} />)
         }
         return (
             <div>

@@ -73,7 +73,7 @@ class App extends Component {
             <Route exact path="/materialInput" render={(props) => <MaterialInput {...props} updateWhichNav={this.updateWhichNav}/>} />
             <Route exact path="/material" render={(props) => <Material {...props}/>}/>
             <Route exact path="/product" render={(props) => <Product {...props}/>}/>
-            <Route exact path="/productInput" render={() => <ProductInput updateWhichNav={this.updateWhichNav}/>} />
+            <Route exact path="/productInput" render={(props) => <ProductInput {...props} updateWhichNav={this.updateWhichNav}/>} />
           </Container>
           {/* <Footer /> */}
         </div>

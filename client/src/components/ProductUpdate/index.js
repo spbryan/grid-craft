@@ -10,12 +10,14 @@ import React, { Component } from 'react';
 import API from "../../utils/API";
 import { Redirect } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
+import MaterialsUsedForm from '../../components/MaterialsUsedForm';
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 class ProductUpdate extends Component {
   state = {
+    productNumber: 0,
     userId: '',
     _id: '',
     type: '',
@@ -27,13 +29,16 @@ class ProductUpdate extends Component {
     pricePerUnit: 0,
     netCostPerUnit: 0,
     imageLink: '',
-    redirect: false
+    redirect: false,
+    materialId: 0,
+    materialQuantity: 0
   };
 
 
   componentDidMount() {
     console.log("spb" + JSON.stringify(this.props.data));
     this.setState({
+      productNumber: this.props.data.productNumber,
       userId: this.props.data.userId,
       _id: this.props.data._id,
       type: this.props.data.type,
@@ -90,7 +95,9 @@ class ProductUpdate extends Component {
 
   handleAddMaterial = event => {
     event.preventDefault();
-    console.log("adding material")
+    console.log("adding material");
+    console.log("material ID: " + this.state.materialId);
+    console.log("material Quantity: " + this.state.materialQuantity);
   }
 
   handleAddSales = event => {
@@ -104,10 +111,10 @@ class ProductUpdate extends Component {
     }
     return (
       <div className="inner-container">
-        <h2 align="right" className="header">      
-          {"Product Information"}
+        <h2 align="right" className="header">
+          {"Product Number: " + this.state.productNumber}
         </h2>
-        <img class="center" align="center" src={this.state.imageLink} alt={this.state.type}/>
+        <img className="center" align="center" src={this.state.imageLink} alt={this.state.type} />
         <Row>
           <Col>
             <Form.Row>
@@ -198,11 +205,18 @@ class ProductUpdate extends Component {
           {"Materials Used"}
         </h2>
         <Row>
-          <Col className="form-button" align="center">
+          {/* <Col className="form-button" align="center">
             <Button
               type="button"
               className="new-btn ml-4"
               onClick={this.handleAddMaterial}>Add Material</Button>
+          </Col> */}
+          <Col xs={7}>
+            <MaterialsUsedForm
+              handleInputChange={this.handleInputChange}
+              handleAddMaterial={this.handleAddMaterial}
+              q={this.state._id}
+            />
           </Col>
         </Row>
         <h2 align="right" className="header">

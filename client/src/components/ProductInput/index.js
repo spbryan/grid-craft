@@ -17,6 +17,7 @@ import Col from "react-bootstrap/Col";
 class ProductInput extends Component {
 
   state = {
+    productNumber: 1,
     userId: '',
     type: '',
     description: '',
@@ -33,6 +34,7 @@ class ProductInput extends Component {
   componentDidMount() {
     this.setState({
       userId: sessionStorage.userID,
+      productNumber: this.props.location.state.productNumber,
       redirect: false
     })
   }
