@@ -12,8 +12,8 @@ import DataTable from 'react-data-table-component';
 
 const columns = [
   {
-    name: 'Material ID',
-    selector: 'materialId',
+    name: 'Material #',
+    selector: 'materialNumber',
     sortable: true,
   },
   {

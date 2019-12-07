@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const materialsUsedSchema = new Schema({
   userId: { type: String, required: true },
-  materialId: {type: Number, required: true},
+  materialNumber: {type: Number, required: true},
+  materialId: {type: String, required: true},
   productId: {type: String, required: true},
   quantity: { type: Number, required: true }
 });

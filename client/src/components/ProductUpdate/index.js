@@ -30,7 +30,7 @@ class ProductUpdate extends Component {
     netCostPerUnit: 0,
     imageLink: '',
     redirect: false,
-    materialId: 0,
+    materialNumber: 0,
     materialQuantity: 0
   };
 
@@ -96,7 +96,7 @@ class ProductUpdate extends Component {
   handleAddMaterial = event => {
     event.preventDefault();
     console.log("adding material");
-    console.log("material ID: " + this.state.materialId);
+    console.log("material ID: " + this.state.materialNumber);
     console.log("material Quantity: " + this.state.materialQuantity);
   }
 

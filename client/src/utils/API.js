@@ -35,6 +35,10 @@ export default {
     return axios.get("/api/materials/" + id);
   },
 
+  getMaterialsByMaterialNumber: function(id) {
+    return axios.get("/api/materials/number/" + id);
+  },
+
   getMaterialsByUserId: function(id) {
     return axios.get("/api/materials/user/" + id);
   },

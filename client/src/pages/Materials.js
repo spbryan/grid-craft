@@ -36,25 +36,25 @@ class Materials extends Component {
     state = {
         redirect: false,
         materialsData: [],
-        nextMaterialId: 1
+        nextMaterialNumber: 1
     };
 
     redirectLocation = '';
 
     handleOpenForm = event => {
         event.preventDefault();this.redirectLocation = '/materialInput';
-        this.determineNextMaterialId();
+        this.determineNextMaterialNumber();
         this.setState({ redirect: true });  // causes a re-render so put it last
     };
 
-    determineNextMaterialId = () => {
+    determineNextMaterialNumber = () => {
         var nextHighest = 1;
         this.state.materialsData.forEach(element => {
-            if (nextHighest <= element.materialId) {
-                nextHighest = element.materialId + 1;
+            if (nextHighest <= element.materialNumber) {
+                nextHighest = element.materialNumber + 1;
             }
         });
-        this.setState({nextMaterialId: nextHighest});
+        this.setState({nextMaterialNumber: nextHighest});
     }
 
     /********************
@@ -76,13 +76,10 @@ class Materials extends Component {
     };
 
     render() {
-        // if (this.state.redirect) {
-        //     return <Redirect to={this.redirectLocation} />;
-        // }
         if (this.state.redirect) {
             return (<Redirect to={{
               pathname: this.redirectLocation,
-              state: { materialId: this.state.nextMaterialId }
+              state: { materialNumber: this.state.nextMaterialNumber }
             }} />)
           }
         return (

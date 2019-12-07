@@ -18,7 +18,7 @@ function Form({ q, handleInputChange, handleAddMaterial }) {
                   className="form-control"
                   id="material-id"
                   type="text"
-                  name="materialId"
+                  name="materialNumber"
                   onChange={handleInputChange}
                   required
                 />

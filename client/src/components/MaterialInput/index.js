@@ -17,7 +17,7 @@ import Col from "react-bootstrap/Col";
 class MaterialsInput extends Component {
 
   state = {
-    materialId: 1,
+    materialNumber: 1,
     userId: '',
     name: '',
     type: '',
@@ -33,10 +33,10 @@ class MaterialsInput extends Component {
   };
 
   componentDidMount() {
-    console.log("<debug> " + this.props.location.state.materialId);
+    console.log("<debug> " + this.props.location.state.materialNumber);
     this.setState({
       userId: sessionStorage.userID,
-      materialId: this.props.location.state.materialId,
+      materialNumber: this.props.location.state.materialNumber,
       redirect: false
     })
   }

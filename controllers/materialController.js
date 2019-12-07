@@ -29,6 +29,11 @@ module.exports = {
       .then(dbMaterial => res.json(dbMaterial))
       .catch(err => res.status(422).json(err));
   },
+  findByMaterialNumber: function (req, res) {
+    db.Material.find({ materialNumber: req.params.id })
+      .then(dbMaterial => res.json(dbMaterial))
+      .catch(err => res.status(422).json(err));
+  },
   create: function (req, res) {
     db.Material.create(req.body)
       .then(dbMaterial => res.json(dbMaterial))

@@ -16,7 +16,7 @@ import Col from "react-bootstrap/Col";
 
 class SongUpdate extends Component {
   state = {
-    materialId: 0,
+    materialNumber: 0,
     userId: '',
     _id: '',
     name: '',
@@ -36,7 +36,7 @@ class SongUpdate extends Component {
 
   componentDidMount() {
     this.setState({
-      materialId: this.props.data.materialId,
+      materialNumber: this.props.data.materialNumber,
       userId: this.props.data.userId,
       _id: this.props.data._id,
       name: this.props.data.name,
@@ -100,7 +100,7 @@ class SongUpdate extends Component {
     return (
       <div className="inner-container">
         <h2 align="right" className="header">
-          {this.state.name + "   (Item #" + this.state.materialId + ")"} 
+          {this.state.name + "   (Item #" + this.state.materialNumber + ")"} 
         </h2>
         <Row>
           <Col>
