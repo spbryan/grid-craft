@@ -6,6 +6,7 @@ const materialsUsedSchema = new Schema({
   materialNumber: {type: Number, required: true},
   materialId: {type: String, required: true},
   productId: {type: String, required: true},
+  skuNumber: {type: String},
   quantity: { type: Number, required: true },
   pricePerUnit: { type: Number}
 });

@@ -40,14 +40,17 @@ module.exports = {
       {
         $set:
         {
+          "activeIndicator": req.body.activeIndicator,
           "name": req.body.name,
+          "skuNumber": req.body.skuNumber,
           "type": req.body.type,
           "gauge": req.body.gauge,
           "length": req.body.length,
           "notes": req.body.notes,
           "purchasedFrom": req.body.purchasedFrom,
           "purchasedLink": req.body.purchasedLink,
-          "quantity": req.body.quantity,
+          "totalQuantity": req.body.totalQuantity,
+          "currentQuantity": req.body.currentQuantity,
           "price": req.body.price,
           "pricePerUnit": req.body.pricePerUnit,
           "imageLink": req.body.imageLink

@@ -17,16 +17,20 @@ import Col from "react-bootstrap/Col";
 class SongUpdate extends Component {
   state = {
     materialNumber: 0,
+    activeIndicator: 'Y',
     userId: '',
+    skuNumber: '',
     _id: '',
     name: '',
+    skuNumber: '',
     type: '',
     gauge: '',
     length: '',
     notes: '',
     purchasedFrom: '',
     purchasedLink: '',
-    quantity: 0,
+    totalQuantity: 0,
+    currentQuantity: 0,
     pricePerUnit: 0,
     price: 0,
     imageLink: '',
@@ -37,16 +41,19 @@ class SongUpdate extends Component {
   componentDidMount() {
     this.setState({
       materialNumber: this.props.data.materialNumber,
+      activeIndicator: this.props.data.activeIndicator,
       userId: this.props.data.userId,
       _id: this.props.data._id,
       name: this.props.data.name,
+      skuNumber: this.props.data.skuNumber,
       type: this.props.data.type,
       gauge: this.props.data.gauge,
       length: this.props.data.length,
       notes: this.props.data.notes,
       purchasedFrom: this.props.data.purchasedFrom,
       purchasedLink: this.props.data.purchasedLink,
-      quantity: this.props.data.quantity,
+      totalQuantity: this.props.data.totalQuantity,
+      currentQuantity: this.props.data.currentQuantity,
       pricePerUnit: this.props.data.pricePerUnit,
       price: this.props.data.price,
       imageLink: this.props.data.imageLink,
@@ -100,10 +107,11 @@ class SongUpdate extends Component {
     return (
       <div className="inner-container">
         <h2 align="right" className="header">
-          {this.state.name + "   (Item #" + this.state.materialNumber + ")"} 
+          {this.state.name + "   (Item #" + this.state.materialNumber + ")"}
         </h2>
+        <img className="center" align="center" src={this.state.imageLink} alt={this.state.type} />
         <Row>
-          <Col>
+          <Col sm={5}>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridName">
                 <Form.Label>Material Name</Form.Label>
@@ -111,7 +119,7 @@ class SongUpdate extends Component {
               </Form.Group>
             </Form.Row>
           </Col>
-          <Col>
+          <Col sm={3}>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridType">
                 <Form.Label>Material Type</Form.Label>
@@ -119,8 +127,6 @@ class SongUpdate extends Component {
               </Form.Group>
             </Form.Row>
           </Col>
-        </Row>
-        <Row>
           <Col>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridGauge">
@@ -144,11 +150,29 @@ class SongUpdate extends Component {
               </Form.Group>
             </Form.Row>
           </Col>
+        </Row>
+        <Row>
           <Col>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridQuantity">
-                <Form.Label>Quantity</Form.Label>
-                <Form.Control type="quantity" name="quantity" placeholder={this.state.quantity} onChange={this.handleInputChange} />
+              <Form.Group as={Col} controlId="formGridSKUNumber">
+                <Form.Label>SKU Number</Form.Label>
+                <Form.Control type="skuNumber" name="skuNumber" placeholder={this.state.skuNumber} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridTotalQuantity">
+                <Form.Label>Total Quantity</Form.Label>
+                <Form.Control type="totalQuantity" name="totalQuantity" placeholder={this.state.totalQuantity} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridCurrentQuantity">
+                <Form.Label>Current Quantity</Form.Label>
+                <Form.Control type="currentQuantity" name="currentQuantity" placeholder={this.state.currentQuantity} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -172,16 +196,6 @@ class SongUpdate extends Component {
         <Row>
           <Col>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridNotes">
-                <Form.Label>Additional Details</Form.Label>
-                <Form.Control as="textarea" rows="3" type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} />
-              </Form.Group>
-            </Form.Row>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Form.Row>
               <Form.Group as={Col} controlId="formGridPurchasedFrom">
                 <Form.Label>Purchased From</Form.Label>
                 <Form.Control type="purchasedFrom" name="purchasedFrom" placeholder={this.state.purchasedFrom} onChange={this.handleInputChange} />
@@ -193,6 +207,19 @@ class SongUpdate extends Component {
               <Form.Group as={Col} controlId="formGridPurchasedLink">
                 <Form.Label>Purchased From URL</Form.Label>
                 <Form.Control type="purchasedLink" name="purchasedLink" placeholder={this.state.purchasedLink} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col sm={2} id="purchase-from-link">
+            <a href={this.state.purchasedLink} target="_blank">Go to Web Page</a>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNotes">
+                <Form.Label>Additional Details</Form.Label>
+                <Form.Control as="textarea" rows="3" type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>

@@ -10,6 +10,7 @@ import React, { Component } from 'react';
 import API from "../../utils/API";
 import { Redirect } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
+import ListGroup from "react-bootstrap/ListGroup";
 import MaterialsUsedForm from '../../components/MaterialsUsedForm';
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
@@ -52,6 +53,7 @@ class ProductUpdate extends Component {
       imageLink: this.props.data.imageLink,
       redirect: false
     })
+    this.getMaterials(this.props.data._id);
   }
 
   redirectLocation = '';
@@ -108,19 +110,7 @@ class ProductUpdate extends Component {
           };
           API.addMaterialUsed(materialUsed)
             .then(res => {
-              API.getMaterialsUsedByProductId(this.state._id)
-                .then(res => {
-                  this.setState({
-                    materialsUsed: res.data
-                  });
-                }
-                )
-                .catch(err => {
-                  alert("Products Page: get materials used error: " + err);
-                  this.setState({
-                    materialsUsed: []
-                  })
-                });
+              this.getMaterials(this.state._id);
             })
             .catch(err => {
               console.log("in catch for submit materials used form");
@@ -134,6 +124,22 @@ class ProductUpdate extends Component {
         console.log("in catch for get material by number form");
         console.log(err);
         this.redirectLocation = '/authfailure';
+      });
+  }
+
+  getMaterials = (productId) => {
+    API.getMaterialsUsedByProductId(productId)
+      .then(res => {
+        this.setState({
+          materialsUsed: res.data
+        });
+      }
+      )
+      .catch(err => {
+        alert("Products Page: get materials used error: " + err);
+        this.setState({
+          materialsUsed: []
+        })
       });
   }
 
@@ -242,18 +248,38 @@ class ProductUpdate extends Component {
           {"Materials Used"}
         </h2>
         <Row>
-          {/* <Col className="form-button" align="center">
-            <Button
-              type="button"
-              className="new-btn ml-4"
-              onClick={this.handleAddMaterial}>Add Material</Button>
-          </Col> */}
           <Col xs={7}>
             <MaterialsUsedForm
               handleInputChange={this.handleInputChange}
               handleAddMaterial={this.handleAddMaterial}
               q={this.state._id}
             />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            {/* <h4>Employees</h4> */}
+            {/* <p>Click to Add</p> */}
+            <ListGroup className="list-overflow-container">
+              {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
+                <ListGroup.Item className="list-item"
+                  key={materialUsed.materialNumber}
+                  >{materialUsed.materialNumber}</ListGroup.Item>
+                  // onClick={() => this.handleEmployeeSelect(availableEmployee.id)}>{availableEmployee.last_name}, {availableEmployee.first_name}</ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Col>
+          <Col>
+            {/* <h4>Employees</h4> */}
+            {/* <p>Click to Add</p> */}
+            <ListGroup className="list-overflow-container">
+              {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
+                <ListGroup.Item className="list-item"
+                  key={materialUsed.materialNumber}
+                  >{materialUsed.materialNumber}</ListGroup.Item>
+                  // onClick={() => this.handleEmployeeSelect(availableEmployee.id)}>{availableEmployee.last_name}, {availableEmployee.first_name}</ListGroup.Item>
+              ))}
+            </ListGroup>
           </Col>
         </Row>
         <h2 align="right" className="header">

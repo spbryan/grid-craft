@@ -17,6 +17,11 @@ const columns = [
     sortable: true,
   },
   {
+    name: 'SKU #',
+    selector: 'skuNumber',
+    sortable: true,
+  },
+  {
     name: 'Name',
     selector: 'name',
     sortable: true,
@@ -27,28 +32,13 @@ const columns = [
     sortable: true
   },
   {
-    name: 'Gauge',
-    selector: 'gauge',
-    sortable: true
-  },
-  {
-    name: 'Length',
-    selector: 'length',
-    sortable: true
-  },
-  {
     name: 'Purchased From',
     selector: 'purchasedFrom',
     sortable: true
   },
   {
-    name: 'Quantity',
-    selector: 'quantity',
-    sortable: true
-  },
-  {
-    name: 'Price',
-    selector: 'price',
+    name: 'Current Quantity',
+    selector: 'currentQuantity',
     sortable: true
   },
   {

@@ -18,14 +18,17 @@ class MaterialsInput extends Component {
 
   state = {
     materialNumber: 1,
+    activeIndicator: 'Y',
     userId: '',
+    skuNumber: '',
     name: '',
     type: '',
     gauge: '',
     length: '',
     purchasedFrom: '',
     purchasedLink: '',
-    quantity: 0,
+    totalQuantity: 0,
+    currentQuantity: 0,
     price: 0,
     pricePerUnit: 0,
     imageLink: '',
@@ -74,7 +77,7 @@ class MaterialsInput extends Component {
           Enter a Material
         </h2>
         <Row>
-          <Col>
+          <Col sm={5}>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridName">
                 <Form.Label>Material Name</Form.Label>
@@ -82,7 +85,7 @@ class MaterialsInput extends Component {
               </Form.Group>
             </Form.Row>
           </Col>
-          <Col>
+          <Col sm={3}>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridType">
                 <Form.Label>Material Type</Form.Label>
@@ -90,8 +93,6 @@ class MaterialsInput extends Component {
               </Form.Group>
             </Form.Row>
           </Col>
-        </Row>
-        <Row>
           <Col>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridGauge">
@@ -104,7 +105,7 @@ class MaterialsInput extends Component {
                   <option>20</option>
                   <option>18</option>
                 </Form.Control>
-                </Form.Group>
+              </Form.Group>
             </Form.Row>
           </Col>
           <Col>
@@ -115,11 +116,29 @@ class MaterialsInput extends Component {
               </Form.Group>
             </Form.Row>
           </Col>
+        </Row>
+        <Row>
           <Col>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridQuantity">
-                <Form.Label>Quantity</Form.Label>
-                <Form.Control type="quantity" name="quantity" placeholder={this.state.quantity} onChange={this.handleInputChange} />
+              <Form.Group as={Col} controlId="formGridSKUNumber">
+                <Form.Label>SKU Number</Form.Label>
+                <Form.Control type="skuNumber" name="skuNumber" placeholder={this.state.skuNumber} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridTotalQuantity">
+                <Form.Label>Total Quantity</Form.Label>
+                <Form.Control type="totalQuantity" name="totalQuantity" placeholder={this.state.totalQuantity} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridCurrentQuantity">
+                <Form.Label>Current Quantity</Form.Label>
+                <Form.Control type="currentQuantity" name="currentQuantity" placeholder={this.state.currentQuantity} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -143,17 +162,6 @@ class MaterialsInput extends Component {
         <Row>
           <Col>
             <Form.Row>
-              <Form.Group as={Col} controlId="formGridNotes">
-                <Form.Label>Additional Details</Form.Label>
-                <Form.Control as="textarea" rows="3" type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange}/>
-                {/* <Form.Control type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} /> */}
-              </Form.Group>
-            </Form.Row>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Form.Row>
               <Form.Group as={Col} controlId="formGridPurchasedFrom">
                 <Form.Label>Purchased From</Form.Label>
                 <Form.Control type="purchasedFrom" name="purchasedFrom" placeholder={this.state.purchasedFrom} onChange={this.handleInputChange} />
@@ -165,6 +173,17 @@ class MaterialsInput extends Component {
               <Form.Group as={Col} controlId="formGridPurchasedLink">
                 <Form.Label>Purchased From URL</Form.Label>
                 <Form.Control type="purchasedLink" name="purchasedLink" placeholder={"http://" + this.state.purchasedLink} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNotes">
+                <Form.Label>Additional Details</Form.Label>
+                <Form.Control as="textarea" rows="3" type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} />
+                {/* <Form.Control type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} /> */}
               </Form.Group>
             </Form.Row>
           </Col>
