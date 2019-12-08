@@ -105,6 +105,7 @@ class ProductUpdate extends Component {
             materialNumber: element.materialNumber,
             materialId: element._id,
             productId: this.state._id,
+            skuNumber: element.skuNumber,
             quantity: this.state.materialQuantity,
             pricePerUnit: element.pricePerUnit
           };
@@ -258,26 +259,57 @@ class ProductUpdate extends Component {
         </Row>
         <Row>
           <Col>
-            {/* <h4>Employees</h4> */}
-            {/* <p>Click to Add</p> */}
+            <h6>Material #</h6>
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
                   key={materialUsed.materialNumber}
-                  >{materialUsed.materialNumber}</ListGroup.Item>
-                  // onClick={() => this.handleEmployeeSelect(availableEmployee.id)}>{availableEmployee.last_name}, {availableEmployee.first_name}</ListGroup.Item>
+                >{materialUsed.materialNumber}</ListGroup.Item>
+                // onClick={() => this.handleEmployeeSelect(availableEmployee.id)}>{availableEmployee.last_name}, {availableEmployee.first_name}</ListGroup.Item>
               ))}
             </ListGroup>
           </Col>
           <Col>
-            {/* <h4>Employees</h4> */}
-            {/* <p>Click to Add</p> */}
+            <h6>SKU #</h6>
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
-                  key={materialUsed.materialNumber}
-                  >{materialUsed.materialNumber}</ListGroup.Item>
-                  // onClick={() => this.handleEmployeeSelect(availableEmployee.id)}>{availableEmployee.last_name}, {availableEmployee.first_name}</ListGroup.Item>
+                  key={materialUsed.skuNumber}
+                >{materialUsed.skuNumber}</ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Col>
+          <Col>
+            <h6>Quantity</h6>
+            <ListGroup className="list-overflow-container">
+              {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
+                <ListGroup.Item className="list-item"
+                  key={materialUsed.quantity}
+                >{materialUsed.quantity}</ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Col>
+          <Col>
+            <h6>Price Per Unit</h6>
+            <ListGroup className="list-overflow-container">
+              {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
+                <ListGroup.Item className="list-item"
+                  key={materialUsed.pricePerUnit}
+                >{"$" + materialUsed.pricePerUnit}</ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Col>
+          <Col>
+            <h6>Remove Material</h6>
+            <ListGroup className="list-overflow-container">
+              {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
+                // <ListGroup.Item className="list-item"
+                //   key={materialUsed.pricePerUnit}
+                // >{"$" + materialUsed.pricePerUnit}</ListGroup.Item>
+                <Button
+                  type="button"
+                  className="remove-material-btn ml-4"
+                  onClick={this.handleAddSales}>Delete</Button>
               ))}
             </ListGroup>
           </Col>
