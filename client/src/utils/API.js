@@ -77,5 +77,9 @@ export default {
 
   getMaterialsUsedByProductId: function(id) {
     return axios.get("/api/materials/used/product/" + id);
+  },
+
+  deleteMaterialsUsedByProductId: function(id) {
+    return axios.delete("/api/materials/used/" + id);
   }
 };

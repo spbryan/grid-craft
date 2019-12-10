@@ -149,6 +149,22 @@ class ProductUpdate extends Component {
     console.log("adding sales")
   }
 
+  deleteMaterial = event => {
+    event.preventDefault();
+    console.log(event.target.id);
+    API.deleteMaterialsUsedByProductId(event.target.id)
+      .then(res => {
+        this.getMaterials(this.state._id);
+      }
+      )
+      .catch(err => {
+        alert("Products Page: get materials used error: " + err);
+        this.setState({
+          materialsUsed: []
+        })
+      });
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.redirectLocation} />;
@@ -263,9 +279,8 @@ class ProductUpdate extends Component {
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
-                  key={materialUsed.materialNumber}
+                  key={materialUsed._id}
                 >{materialUsed.materialNumber}</ListGroup.Item>
-                // onClick={() => this.handleEmployeeSelect(availableEmployee.id)}>{availableEmployee.last_name}, {availableEmployee.first_name}</ListGroup.Item>
               ))}
             </ListGroup>
           </Col>
@@ -274,7 +289,7 @@ class ProductUpdate extends Component {
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
-                  key={materialUsed.skuNumber}
+                  key={materialUsed._id}
                 >{materialUsed.skuNumber}</ListGroup.Item>
               ))}
             </ListGroup>
@@ -284,7 +299,7 @@ class ProductUpdate extends Component {
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
-                  key={materialUsed.quantity}
+                  key={materialUsed._id}
                 >{materialUsed.quantity}</ListGroup.Item>
               ))}
             </ListGroup>
@@ -294,7 +309,7 @@ class ProductUpdate extends Component {
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
-                  key={materialUsed.pricePerUnit}
+                  key={materialUsed._id}
                 >{"$" + materialUsed.pricePerUnit}</ListGroup.Item>
               ))}
             </ListGroup>
@@ -303,13 +318,12 @@ class ProductUpdate extends Component {
             <h6>Remove Material</h6>
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
-                // <ListGroup.Item className="list-item"
-                //   key={materialUsed.pricePerUnit}
-                // >{"$" + materialUsed.pricePerUnit}</ListGroup.Item>
                 <Button
                   type="button"
                   className="remove-material-btn ml-4"
-                  onClick={this.handleAddSales}>Delete</Button>
+                  key={materialUsed._id}
+                  id={materialUsed._id}
+                  onClick={this.deleteMaterial}>Delete</Button>
               ))}
             </ListGroup>
           </Col>
