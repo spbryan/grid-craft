@@ -81,5 +81,25 @@ export default {
 
   deleteMaterialsUsedByProductId: function(id) {
     return axios.delete("/api/materials/used/" + id);
+  },
+
+  addSale: function(saleData) {
+    return axios.post("/api/sales/", saleData);
+  },
+
+  updateSale: function(id, saleData) {
+    return axios.put("/api/sales/" + id, saleData);
+  },
+
+  getSalesByProductId: function(id) {
+    return axios.get("/api/sales/product/" + id);
+  },
+
+  getSalesByUserId: function(id) {
+    return axios.get("/api/sales/user/" + id);
+  },
+
+  deleteSales: function(id) {
+    return axios.delete("/api/sales/" + id);
   }
 };

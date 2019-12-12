@@ -34,7 +34,7 @@ function Form({ q, handleInputChange, handleAddMaterial }) {
               <input
                   className="form-control"
                   id="material-quantity"
-                  type="text"
+                  type="number"
                   name="materialQuantity"
                   onChange={handleInputChange}
                   required

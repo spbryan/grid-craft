@@ -25,7 +25,7 @@ router.route("/user/:id")
   .get(saleController.findByUserId);
 
 // Matches with "/api/sales/product/:id"
-router.route("/user/product/:id")
+router.route("/product/:id")
   .get(saleController.findByProductId);
 
 module.exports = router;

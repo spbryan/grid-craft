@@ -12,6 +12,7 @@ import { Redirect } from 'react-router-dom';
 import Form from "react-bootstrap/Form";
 import ListGroup from "react-bootstrap/ListGroup";
 import MaterialsUsedForm from '../../components/MaterialsUsedForm';
+import SalesInputForm from '../../components/SalesInputForm';
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -33,7 +34,12 @@ class ProductUpdate extends Component {
     redirect: false,
     materialNumber: 0,
     materialQuantity: 0,
-    materialsUsed: []
+    saleDate: '',
+    saleLocation: '',
+    unitsSold: 0,
+    salesPricePerUnit: 0,
+    materialsUsed: [],
+    sales: []
   };
 
 
@@ -54,9 +60,20 @@ class ProductUpdate extends Component {
       redirect: false
     })
     this.getMaterials(this.props.data._id);
+    this.getSales(this.props.data._id);
+    this.initializeSaleInfo();
   }
 
   redirectLocation = '';
+
+  initializeSaleInfo() {
+    this.setState({
+      saleDate: '',
+      saleLocation: '',
+      unitsSold: 0,
+      salesPricePerUnit: 0
+    })
+  }
 
   handleInputChange = event => {
     console.log('handle input change on login: ' + event.target.name + ' ' + event.target.value);
@@ -144,9 +161,44 @@ class ProductUpdate extends Component {
       });
   }
 
-  handleAddSales = event => {
+  getSales = (productId) => {
+    API.getSalesByProductId(productId)
+      .then(res => {
+        this.setState({
+          sales: res.data
+        });
+      }
+      )
+      .catch(err => {
+        alert("Products Page: get sales error: " + err);
+        this.setState({
+          sales: []
+        })
+      });
+  }
+
+  handleAddSale = event => {
     event.preventDefault();
     console.log("adding sales")
+    var sale = {
+      userId: this.props.data.userId,
+      productId: this.state._id,
+      saleDate: this.state.saleDate,
+      saleLocation: this.state.saleLocation,
+      unitsSold: this.state.unitsSold,
+      pricePerUnit: this.state.salesPricePerUnit
+    };
+    API.addSale(sale)
+      .then(res => {
+        this.getSales(this.state._id);
+        this.initializeSaleInfo();
+      })
+      .catch(err => {
+        console.log("in catch for submit materials used form");
+        console.log(err);
+        this.redirectLocation = '/authfailure';
+        this.setState({ redirect: true });   // causes a re-render so put it last
+      });
   }
 
   deleteMaterial = event => {
@@ -332,13 +384,22 @@ class ProductUpdate extends Component {
           {"Sales"}
         </h2>
         <Row>
+          <Col>
+            <SalesInputForm
+              handleInputChange={this.handleInputChange}
+              handleAddSale={this.handleAddSale}
+              q={this.state._id}
+            />
+          </Col>
+        </Row>
+        {/* <Row>
           <Col className="form-button" align="center">
             <Button
               type="button"
               className="new-btn ml-4"
               onClick={this.handleAddSales}>Add Sales</Button>
           </Col>
-        </Row>
+        </Row> */}
       </div>
     );
   }
