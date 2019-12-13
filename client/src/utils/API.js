@@ -99,7 +99,7 @@ export default {
     return axios.get("/api/sales/user/" + id);
   },
 
-  deleteSales: function(id) {
+  deleteSale: function(id) {
     return axios.delete("/api/sales/" + id);
   }
 };

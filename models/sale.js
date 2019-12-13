@@ -9,6 +9,7 @@ const saleSchema = new Schema({
     default: Date.now },
   saleLocation: {type: String},
   unitsSold: { type: Number, default: 0 },
+  netCostPerUnit: { type: Number, default: 0 },
   pricePerUnit: { type: Number, default: 0 }
 });
 

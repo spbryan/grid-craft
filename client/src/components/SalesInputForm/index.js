@@ -25,7 +25,7 @@ function Form({ q, handleInputChange, handleAddSale }) {
             </div>
           </form>
         </Col>
-        <Col>
+        <Col xs={3}>
           <form>
             <div className="form-group">
               <label>
@@ -67,7 +67,6 @@ function Form({ q, handleInputChange, handleAddSale }) {
                   id="price-per-unit"
                   type="text"
                   name="salesPricePerUnit"
-                  // value="$ "
                   onChange={handleInputChange}
                 />
               </label>

@@ -13,6 +13,7 @@ import Form from "react-bootstrap/Form";
 import ListGroup from "react-bootstrap/ListGroup";
 import MaterialsUsedForm from '../../components/MaterialsUsedForm';
 import SalesInputForm from '../../components/SalesInputForm';
+import Moment from 'moment';
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -37,6 +38,7 @@ class ProductUpdate extends Component {
     saleDate: '',
     saleLocation: '',
     unitsSold: 0,
+    netCostPerUnit: 0,
     salesPricePerUnit: 0,
     materialsUsed: [],
     sales: []
@@ -71,6 +73,7 @@ class ProductUpdate extends Component {
       saleDate: '',
       saleLocation: '',
       unitsSold: 0,
+      netCostPerUnit: 0,
       salesPricePerUnit: 0
     })
   }
@@ -186,6 +189,7 @@ class ProductUpdate extends Component {
       saleDate: this.state.saleDate,
       saleLocation: this.state.saleLocation,
       unitsSold: this.state.unitsSold,
+      netCostPerUnit: this.state.netCostPerUnit,
       pricePerUnit: this.state.salesPricePerUnit
     };
     API.addSale(sale)
@@ -213,6 +217,22 @@ class ProductUpdate extends Component {
         alert("Products Page: get materials used error: " + err);
         this.setState({
           materialsUsed: []
+        })
+      });
+  }
+
+  deleteSale = event => {
+    event.preventDefault();
+    console.log(event.target.id);
+    API.deleteSale(event.target.id)
+      .then(res => {
+        this.getSales(this.state._id);
+      }
+      )
+      .catch(err => {
+        alert("Products Page: get sales error: " + err);
+        this.setState({
+          sales: []
         })
       });
   }
@@ -392,14 +412,61 @@ class ProductUpdate extends Component {
             />
           </Col>
         </Row>
-        {/* <Row>
-          <Col className="form-button" align="center">
-            <Button
-              type="button"
-              className="new-btn ml-4"
-              onClick={this.handleAddSales}>Add Sales</Button>
+        <Row>
+          <Col>
+            <h6>Sale Date</h6>
+            <ListGroup className="list-overflow-container">
+              {this.state.sales.length > 0 && this.state.sales.map(sale => (
+                <ListGroup.Item className="list-item"
+                  key={sale._id}
+                >{Moment(sale.saleDate).format('MM/DD/YYYY')}</ListGroup.Item>
+              ))}
+            </ListGroup>
           </Col>
-        </Row> */}
+          <Col>
+            <h6>Location</h6>
+            <ListGroup className="list-overflow-container">
+              {this.state.sales.length > 0 && this.state.sales.map(sale => (
+                <ListGroup.Item className="list-item"
+                  key={sale._id}
+                >{sale.saleLocation}</ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Col>
+          <Col>
+            <h6>Units Sold</h6>
+            <ListGroup className="list-overflow-container">
+              {this.state.sales.length > 0 && this.state.sales.map(sale => (
+                <ListGroup.Item className="list-item"
+                  key={sale._id}
+                >{sale.unitsSold}</ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Col>
+          <Col>
+            <h6>Price Per Unit</h6>
+            <ListGroup className="list-overflow-container">
+              {this.state.sales.length > 0 && this.state.sales.map(sale => (
+                <ListGroup.Item className="list-item"
+                  key={sale._id}
+                >{"$" + sale.pricePerUnit}</ListGroup.Item>
+              ))}
+            </ListGroup>
+          </Col>
+          <Col>
+            <h6>Remove Sale</h6>
+            <ListGroup className="list-overflow-container">
+              {this.state.sales.length > 0 && this.state.sales.map(sale => (
+                <Button
+                  type="button"
+                  className="remove-sale-btn ml-4"
+                  key={sale._id}
+                  id={sale._id}
+                  onClick={this.deleteSale}>Delete</Button>
+              ))}
+            </ListGroup>
+          </Col>
+        </Row>
       </div>
     );
   }
