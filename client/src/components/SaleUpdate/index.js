@@ -26,6 +26,7 @@ class SaleUpdate extends Component {
     unitsSold: 0,
     netCostPerUnit: 0,
     pricePerUnit: 0,
+    totalProfit: 0,
     redirect: false
   };
 
@@ -41,6 +42,7 @@ class SaleUpdate extends Component {
       unitsSold: this.props.data.unitsSold,
       netCostPerUnit: this.props.data.netCostPerUnit,
       pricePerUnit: this.props.data.pricePerUnit,
+      totalProfit: this.props.data.totalProfit,
       redirect: false
     })
   }
@@ -130,7 +132,7 @@ class SaleUpdate extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridNetCostPerUnit">
                 <Form.Label>Net Cost Per Unit</Form.Label>
-                <Form.Control type="netCostPerUnit" name="netCostPerUnit" placeholder={this.state.netCostPerUnit} onChange={this.handleInputChange} />
+                <Form.Control type="netCostPerUnit" name="netCostPerUnit" placeholder={"$ " + this.state.netCostPerUnit} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -139,6 +141,14 @@ class SaleUpdate extends Component {
               <Form.Group as={Col} controlId="formGridPricePerUnit">
                 <Form.Label>Price Per Unit</Form.Label>
                 <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridTotalProfit">
+                <Form.Label>Total Profit</Form.Label>
+                <Form.Control type="totalProfit" name="totalProfit" placeholder={"$ " + this.state.totalProfit} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>

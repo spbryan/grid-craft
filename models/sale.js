@@ -11,7 +11,8 @@ const saleSchema = new Schema({
   saleLocation: {type: String},
   unitsSold: { type: Number, default: 0 },
   netCostPerUnit: { type: Number, default: 0 },
-  pricePerUnit: { type: Number, default: 0 }
+  pricePerUnit: { type: Number, default: 0 },
+  totalProfit: { type: Number, default: 0 }
 });
 
 const Sale = mongoose.model("Sale", saleSchema);

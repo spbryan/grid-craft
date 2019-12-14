@@ -44,7 +44,8 @@ module.exports = {
           "saleLocation": req.body.saleLocation,
           "unitsSold": req.body.unitsSold,
           "netCostPerUnit": req.body.netCostPerUnit,
-          "pricePerUnit": req.body.pricePerUnit
+          "pricePerUnit": req.body.pricePerUnit,
+          "totalProfit": req.body.totalProfit,
         }
       })
       .then(dbSale => res.json(dbSale))
