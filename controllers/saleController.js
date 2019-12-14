@@ -43,7 +43,7 @@ module.exports = {
           "saleDate": req.body.saleDate,
           "saleLocation": req.body.saleLocation,
           "unitsSold": req.body.unitsSold,
-          "netCostPerUnit": req.body.pricePerUnit,
+          "netCostPerUnit": req.body.netCostPerUnit,
           "pricePerUnit": req.body.pricePerUnit
         }
       })

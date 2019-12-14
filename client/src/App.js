@@ -21,6 +21,7 @@ import Material from "./pages/Material";
 import Product from "./pages/Product";
 import Materials from "./pages/Materials";
 import Sales from "./pages/Sales";
+import Sale from "./pages/Sale";
 import con from "./utils/const";
 import "./App.css";
 
@@ -69,6 +70,7 @@ class App extends Component {
             <Route exact path="/" render={() => <Home updateWhichNav={this.updateWhichNav} />} />
             <Route exact path="/inventory" render={() => <Inventory updateWhichNav={this.updateWhichNav}/>} />
             <Route exact path="/sales" render={() => <Sales updateWhichNav={this.updateWhichNav}/>} />
+            <Route exact path="/sale" render={(props) => <Sale {...props}/>}/>
             <Route exact path="/materials" render={() => <Materials updateWhichNav={this.updateWhichNav}/>} />
             <Route exact path="/materialInput" render={(props) => <MaterialInput {...props} updateWhichNav={this.updateWhichNav}/>} />
             <Route exact path="/material" render={(props) => <Material {...props}/>}/>

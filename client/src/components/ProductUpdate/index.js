@@ -186,6 +186,7 @@ class ProductUpdate extends Component {
     var sale = {
       userId: this.props.data.userId,
       productId: this.state._id,
+      productNumber: this.state.productNumber,
       saleDate: this.state.saleDate,
       saleLocation: this.state.saleLocation,
       unitsSold: this.state.unitsSold,
