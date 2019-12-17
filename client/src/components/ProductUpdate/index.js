@@ -18,6 +18,9 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+const DRIVE_OPEN = "https://drive.google.com/open";
+const DRIVE_UC = "https://drive.google.com/uc";
+
 class ProductUpdate extends Component {
   state = {
     productNumber: 0,
@@ -238,6 +241,15 @@ class ProductUpdate extends Component {
       });
   }
 
+  formatImageLink = () => {
+    if (this.state.imageLink.includes(DRIVE_OPEN)) {
+      return this.state.imageLink.replace(DRIVE_OPEN, DRIVE_UC);
+    }
+    else {
+      return this.state.imageLink;
+    }
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.redirectLocation} />;
@@ -247,7 +259,8 @@ class ProductUpdate extends Component {
         <h2 align="right" className="header">
           {"Product Number: " + this.state.productNumber}
         </h2>
-        <img className="center" align="center" src={this.state.imageLink} alt={this.state.type} />
+        {/* <img className="center" align="center" src={this.state.imageLink} alt={this.state.type} /> */}
+        <img className="center" align="center" src={this.formatImageLink()} alt={this.state.type} />
         <Row>
           <Col>
             <Form.Row>

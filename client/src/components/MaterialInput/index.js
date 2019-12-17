@@ -13,6 +13,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import './style.css';
 
 class MaterialsInput extends Component {
 
@@ -67,12 +68,22 @@ class MaterialsInput extends Component {
       });
   }
 
+  determinePricePerUnit = () => {
+    if (this.state.totalQuantity > 0 && this.state.price > 0) {
+      var pricePerUnit = this.state.price / this.state.totalQuantity;
+      return pricePerUnit.toFixed(2);
+    }
+    else {
+      return 0;
+    }
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.redirectLocation} />;
     }
     return (
-      <div className="inner-container">
+      <div className="inner-container form-label">
         <h2 align="center" className="header">
           Enter a Material
         </h2>
@@ -130,7 +141,7 @@ class MaterialsInput extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridTotalQuantity">
                 <Form.Label>Total Quantity</Form.Label>
-                <Form.Control type="totalQuantity" name="totalQuantity" placeholder={this.state.totalQuantity} onChange={this.handleInputChange} />
+                <Form.Control type="number" name="totalQuantity" placeholder={this.state.totalQuantity} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -138,7 +149,7 @@ class MaterialsInput extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridCurrentQuantity">
                 <Form.Label>Current Quantity</Form.Label>
-                <Form.Control type="currentQuantity" name="currentQuantity" placeholder={this.state.currentQuantity} onChange={this.handleInputChange} />
+                <Form.Control type="number" name="currentQuantity" placeholder={this.state.currentQuantity} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -154,7 +165,7 @@ class MaterialsInput extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridPricePerUnit">
                 <Form.Label>Price Per Unit</Form.Label>
-                <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
+                <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.determinePricePerUnit()} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>

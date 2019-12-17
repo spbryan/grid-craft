@@ -14,6 +14,9 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
+const DRIVE_OPEN = "https://drive.google.com/open";
+const DRIVE_UC = "https://drive.google.com/uc";
+
 class SongUpdate extends Component {
   state = {
     materialNumber: 0,
@@ -100,6 +103,15 @@ class SongUpdate extends Component {
       });
   }
 
+  formatImageLink = () => {
+    if (this.state.imageLink.includes(DRIVE_OPEN)) {
+      return this.state.imageLink.replace(DRIVE_OPEN, DRIVE_UC);
+    }
+    else {
+      return this.state.imageLink;
+    }
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.redirectLocation} />;
@@ -109,7 +121,8 @@ class SongUpdate extends Component {
         <h2 align="right" className="header">
           {this.state.name + "   (Item #" + this.state.materialNumber + ")"}
         </h2>
-        <img className="center" align="center" src={this.state.imageLink} alt={this.state.type} />
+        {/* <img className="center" align="center" src={this.state.imageLink} alt={this.state.type} /> */}
+        <img className="center" align="center" src={this.formatImageLink()} alt={this.state.type} />
         <Row>
           <Col sm={5}>
             <Form.Row>
@@ -164,7 +177,7 @@ class SongUpdate extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridTotalQuantity">
                 <Form.Label>Total Quantity</Form.Label>
-                <Form.Control type="totalQuantity" name="totalQuantity" placeholder={this.state.totalQuantity} onChange={this.handleInputChange} />
+                <Form.Control type="number" name="totalQuantity" placeholder={this.state.totalQuantity} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -172,7 +185,7 @@ class SongUpdate extends Component {
             <Form.Row>
               <Form.Group as={Col} controlId="formGridCurrentQuantity">
                 <Form.Label>Current Quantity</Form.Label>
-                <Form.Control type="currentQuantity" name="currentQuantity" placeholder={this.state.currentQuantity} onChange={this.handleInputChange} />
+                <Form.Control type="number" name="currentQuantity" placeholder={this.state.currentQuantity} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
@@ -241,7 +254,7 @@ class SongUpdate extends Component {
             <Button
               type="button"
               className="new-btn ml-4"
-              onClick={this.handleFormSubmit}>Update</Button>
+              onClick={this.handleFormSubmit}>Done</Button>
             <Button
               type="button"
               className="new-btn ml-4"
