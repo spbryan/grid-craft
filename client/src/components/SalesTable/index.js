@@ -9,12 +9,14 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
+import moment from 'moment';
 
 const columns = [
   {
     name: 'Date',
     selector: 'saleDate',
     sortable: true,
+    format: row => moment(row.timestamp).format('MM/DD/YYYY')
   },
   {
     name: 'Location',
