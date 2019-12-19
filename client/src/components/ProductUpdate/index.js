@@ -32,7 +32,7 @@ class ProductUpdate extends Component {
     findings: '',
     numberAvailable: 0,
     numberSold: 0,
-    pricePerUnit: 0,
+    suggestedPrice: 0,
     netCostPerUnit: 0,
     imageLink: '',
     redirect: false,
@@ -41,7 +41,6 @@ class ProductUpdate extends Component {
     saleDate: '',
     saleLocation: '',
     unitsSold: 0,
-    netCostPerUnit: 0,
     salesPricePerUnit: 0,
     materialsUsed: [],
     sales: []
@@ -59,7 +58,7 @@ class ProductUpdate extends Component {
       findings: this.props.data.findings,
       numberAvailable: this.props.data.numberAvailable,
       numberSold: this.props.data.numberSold,
-      pricePerUnit: this.props.data.pricePerUnit,
+      suggestedPrice: this.props.data.suggestedPrice,
       netCostPerUnit: this.props.data.netCostPerUnit,
       imageLink: this.props.data.imageLink,
       redirect: false
@@ -76,7 +75,7 @@ class ProductUpdate extends Component {
       saleDate: '',
       saleLocation: '',
       unitsSold: 0,
-      netCostPerUnit: 0,
+      // netCostPerUnit: 0,
       salesPricePerUnit: 0
     })
   }
@@ -194,7 +193,8 @@ class ProductUpdate extends Component {
       saleLocation: this.state.saleLocation,
       unitsSold: this.state.unitsSold,
       netCostPerUnit: this.state.netCostPerUnit,
-      pricePerUnit: this.state.salesPricePerUnit
+      pricePerUnit: this.state.salesPricePerUnit,
+      totalProfit: this.calculateTotalProfit()
     };
     API.addSale(sale)
       .then(res => {
@@ -250,6 +250,26 @@ class ProductUpdate extends Component {
     }
   }
 
+  determineNetCostPerUnit = () => {
+    var netCost = 0;
+    this.state.materialsUsed.forEach(material => {
+      var materialCost = material.quantity * material.pricePerUnit;
+      netCost = netCost + materialCost;
+    })
+    return netCost;
+  }
+
+  calculateEstimatedProfit = () => {
+    var profit = this.state.suggestedPrice - this.state.netCostPerUnit;
+    return profit;
+  }
+
+  calculateTotalProfit = () => {
+    var totalSale = this.state.unitsSold * this.state.salesPricePerUnit;
+    var totalCost = this.state.unitsSold * this.state.netCostPerUnit;
+    return totalSale - totalCost;
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.redirectLocation} />;
@@ -259,7 +279,6 @@ class ProductUpdate extends Component {
         <h2 align="right" className="header">
           {"Product Number: " + this.state.productNumber}
         </h2>
-        {/* <img className="center" align="center" src={this.state.imageLink} alt={this.state.type} /> */}
         <img className="center" align="center" src={this.formatImageLink()} alt={this.state.type} />
         <Row>
           <Col>
@@ -298,32 +317,6 @@ class ProductUpdate extends Component {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridNumberAvailable">
-                <Form.Label>Number Available</Form.Label>
-                <Form.Control type="numberAvailable" name="numberAvailable" placeholder={this.state.numberAvailable} onChange={this.handleInputChange} />
-              </Form.Group>
-            </Form.Row>
-          </Col>
-          <Col>
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridNumberSold">
-                <Form.Label>Number Sold</Form.Label>
-                <Form.Control readOnly={true} type="numberSold" name="numberSold" placeholder={this.state.numberSold} onChange={this.handleInputChange} />
-              </Form.Group>
-            </Form.Row>
-          </Col>
-          <Col>
-            <Form.Row>
-              <Form.Group as={Col} controlId="formGridPricePerUnit">
-                <Form.Label>Price Per Unit</Form.Label>
-                <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
-              </Form.Group>
-            </Form.Row>
-          </Col>
-        </Row>
-        <Row>
           <Col sm={2}></Col>
           <Col>
             <Form.Row>
@@ -334,18 +327,6 @@ class ProductUpdate extends Component {
             </Form.Row>
           </Col>
           <Col sm={2}></Col>
-        </Row>
-        <Row>
-          <Col className="form-button" align="right">
-            <Button
-              type="button"
-              className="new-btn ml-4"
-              onClick={this.handleFormSubmit}>Update</Button>
-            <Button
-              type="button"
-              className="new-btn ml-4"
-              onClick={this.handleDelete}>Delete</Button>
-          </Col>
         </Row>
         <h2 align="right" className="header">
           {"Materials Used"}
@@ -419,6 +400,48 @@ class ProductUpdate extends Component {
         </h2>
         <Row>
           <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNumberAvailable">
+                <Form.Label>Number Available</Form.Label>
+                <Form.Control type="number" name="numberAvailable" placeholder={this.state.numberAvailable} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNumberSold">
+                <Form.Label>Number Sold</Form.Label>
+                <Form.Control type="number" name="numberSold" placeholder={this.state.numberSold} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridNetCostPerUnit">
+                <Form.Label>Net Cost (${this.determineNetCostPerUnit()})</Form.Label>
+                <Form.Control type="netCostPerUnit" name="netCostPerUnit" placeholder={"$ " + this.state.netCostPerUnit} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridSuggestedPrice">
+                <Form.Label>Suggested Price</Form.Label>
+                <Form.Control type="suggestedPrice" name="suggestedPrice" placeholder={"$ " + this.state.suggestedPrice} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+          <Col>
+            <Form.Row>
+              <Form.Group as={Col} controlId="formGridTotalProfit">
+                <Form.Label>Estimated Profit</Form.Label>
+                <Form.Control readOnly type="totalProfit" name="totalProfit" placeholder={"$ " + this.calculateEstimatedProfit()} onChange={this.handleInputChange} />
+              </Form.Group>
+            </Form.Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
             <SalesInputForm
               handleInputChange={this.handleInputChange}
               handleAddSale={this.handleAddSale}
@@ -479,6 +502,21 @@ class ProductUpdate extends Component {
                   onClick={this.deleteSale}>Delete</Button>
               ))}
             </ListGroup>
+          </Col>
+        </Row>
+        <h2 align="right" className="header">
+          {" "}
+        </h2>
+        <Row>
+          <Col className="form-button" align="center">
+            <Button
+              type="button"
+              className="new-btn ml-4"
+              onClick={this.handleFormSubmit}>Done</Button>
+            <Button
+              type="button"
+              className="new-btn ml-4"
+              onClick={this.handleDelete}>Delete</Button>
           </Col>
         </Row>
       </div>

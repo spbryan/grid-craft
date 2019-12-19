@@ -10,7 +10,7 @@ const productSchema = new Schema({
   findings: { type: String, required: true },
   numberAvailable: { type: Number, default: 0 },
   numberSold: { type: Number, default: 0 },
-  pricePerUnit: { type: Number, default: 0},
+  suggestedPrice: { type: Number, default: 0},
   netCostPerUnit: { type: Number, default: 0},
   imageLink: { type: String}
 });

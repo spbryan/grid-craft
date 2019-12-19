@@ -1,7 +1,7 @@
 {
-  "name": "my-guitar-home",
+  "name": "grid-craft",
   "version": "1.0.0",
-  "description": "Central site for personal guitar skill tracking and training",
+  "description": "Central fake site to test out practical concepts for a business application",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",

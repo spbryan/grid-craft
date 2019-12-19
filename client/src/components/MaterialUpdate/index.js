@@ -112,6 +112,16 @@ class SongUpdate extends Component {
     }
   }
 
+  determinePricePerUnit = () => {
+    if (this.state.totalQuantity > 0 && this.state.price > 0) {
+      var pricePerUnit = this.state.price / this.state.totalQuantity;
+      return pricePerUnit.toFixed(2);
+    }
+    else {
+      return 0;
+    }
+  }
+
   render() {
     if (this.state.redirect) {
       return <Redirect to={this.redirectLocation} />;
@@ -200,7 +210,7 @@ class SongUpdate extends Component {
           <Col>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridPricePerUnit">
-                <Form.Label>Price Per Unit</Form.Label>
+                <Form.Label>Price Per Unit (${this.determinePricePerUnit()})</Form.Label>
                 <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>

@@ -9,6 +9,14 @@ function Form({ q, handleInputChange, handleAddSale }) {
   return (
     <Container>
       <Row>
+        <Col className="form-button" align="center">
+          <Button
+            type="button"
+            className="new-btn ml-4"
+            onClick={handleAddSale}>Add Sale</Button>
+        </Col>
+      </Row>
+      <Row>
         <Col>
           <form>
             <div className="form-group">
@@ -73,12 +81,12 @@ function Form({ q, handleInputChange, handleAddSale }) {
             </div>
           </form>
         </Col>
-        <Col className="form-button" align="right">
+        {/* <Col className="form-button" align="right">
           <Button
             type="button"
             className="new-btn ml-4"
             onClick={handleAddSale}>Add Sale</Button>
-        </Col>
+        </Col> */}
       </Row>
     </Container>
   );

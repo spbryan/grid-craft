@@ -37,7 +37,6 @@ class MaterialsInput extends Component {
   };
 
   componentDidMount() {
-    console.log("<debug> " + this.props.location.state.materialNumber);
     this.setState({
       userId: sessionStorage.userID,
       materialNumber: this.props.location.state.materialNumber,
@@ -164,8 +163,8 @@ class MaterialsInput extends Component {
           <Col>
             <Form.Row>
               <Form.Group as={Col} controlId="formGridPricePerUnit">
-                <Form.Label>Price Per Unit</Form.Label>
-                <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.determinePricePerUnit()} onChange={this.handleInputChange} />
+                <Form.Label>Price Per Unit (${this.determinePricePerUnit()})</Form.Label>
+                <Form.Control type="pricePerUnit" name="pricePerUnit" placeholder={"$ " + this.state.pricePerUnit} onChange={this.handleInputChange} />
               </Form.Group>
             </Form.Row>
           </Col>
