@@ -12,6 +12,85 @@ img {
   padding-bottom: 20px;
 }
 
+h1 {
+  text-align: center;
+  margin-top: 25px;
+  /* font-family: 'Shadows Into Light', cursive; */
+  /* font-family: 'Mansalva', cursive; */
+  /* font-family: 'Baloo Bhai', cursive; */
+  /* font-family: 'Patua One', cursive; */
+  /* font-family: 'Gothic A1', sans-serif; */
+  /* font-family: 'Prociono', serif; */
+  font-family: 'Merienda One', cursive;
+}
+
+.form-header {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 17px;
+  margin-top: 15px;
+  font-family: Ozxgen, sans-serif;
+  font-size: 22px;
+  font-family: 'Merienda One', cursive;
+  border-bottom: 2px solid #702b78;
+}
+
+.new-btn {
+  color: rgb(255, 255, 255); 
+  font-size: 16px; 
+  line-height: 12px; 
+  padding: 16px; 
+  border-radius: 10px; 
+  /* font-family: Georgia, serif;  */
+  font-weight: normal; 
+  text-decoration: none; 
+  font-style: normal; 
+  font-variant: normal; 
+  text-transform: none; 
+  background-image: linear-gradient(to right, rgb(112, 43, 120) 0%, rgb(172,65,225) 50%, rgb(93,62,127) 100%); 
+  /* box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;  */
+  border: 2px solid rgb(112, 43, 120); 
+  display: inline-block;
+}
+
+.new-btn:hover {
+  background: #702b78; 
+  border: 2px solid rgb(112, 43, 120);
+}
+
+.new-btn:active {
+  background: #702b78; 
+}
+
+.delete-btn {
+  color: rgb(255, 255, 255); 
+  font-size: 16px; 
+  line-height: 12px; 
+  padding: 10px; 
+  margin: 6px;
+  border-radius: 10px; 
+  width: 75px;
+  /* font-family: Georgia, serif;  */
+  font-weight: normal; 
+  text-decoration: none; 
+  font-style: normal; 
+  font-variant: normal; 
+  text-transform: none; 
+  background-image: linear-gradient(to right, rgb(112, 43, 120) 0%, rgb(172,65,225) 50%, rgb(93,62,127) 100%); 
+  /* box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;  */
+  border: 2px solid rgb(112, 43, 120); 
+  display: inline-block;
+}
+
+.delete-btn:hover {
+  background: #702b78; 
+  border: 2px solid rgb(112, 43, 120);
+}
+
+.delete-btn:active {
+  background: #702b78; 
+}
+
 .center {
   display: block;
   margin-left: auto;

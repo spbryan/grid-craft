@@ -1,0 +1,12 @@
+#nav-bar {
+    background-color: #5d3e7f;
+    color: #c3cdcf;
+}
+
+.ml-auto:hover {
+    color: white;
+}
+
+.ml-auto {
+    color: #c3cdcf;
+}

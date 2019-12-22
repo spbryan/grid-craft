@@ -1,3 +1,6 @@
-.form-group {
-    text-align: left;
+#material-input {
+    border-radius: 25px;
+    border: 2px dotted #702b78;
+    padding: 20px; 
+    margin-bottom: 20px;
 }

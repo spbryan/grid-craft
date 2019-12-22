@@ -72,7 +72,7 @@ class ProductInput extends Component {
     }
     return (
       <div className="inner-container">
-        <h2 align="center" className="header">
+        <h2 align="center" className="form-header">
           Enter a Product
         </h2>
         <Row>

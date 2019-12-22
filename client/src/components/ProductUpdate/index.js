@@ -276,7 +276,7 @@ class ProductUpdate extends Component {
     }
     return (
       <div className="inner-container">
-        <h2 align="right" className="header">
+        <h2 align="right" className="form-header">
           {"Product Number: " + this.state.productNumber}
         </h2>
         <img className="center" align="center" src={this.formatImageLink()} alt={this.state.type} />
@@ -328,17 +328,19 @@ class ProductUpdate extends Component {
           </Col>
           <Col sm={2}></Col>
         </Row>
-        <h2 align="right" className="header">
+        <h2 align="right" className="form-header">
           {"Materials Used"}
         </h2>
         <Row>
-          <Col xs={7}>
+          <Col xs={3}></Col>
+          <Col xs={6}>
             <MaterialsUsedForm
               handleInputChange={this.handleInputChange}
               handleAddMaterial={this.handleAddMaterial}
               q={this.state._id}
             />
           </Col>
+          <Col xs={3}></Col>
         </Row>
         <Row>
           <Col>
@@ -387,7 +389,7 @@ class ProductUpdate extends Component {
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <Button
                   type="button"
-                  className="remove-material-btn ml-4"
+                  className="delete-btn ml-4"
                   key={materialUsed._id}
                   id={materialUsed._id}
                   onClick={this.deleteMaterial}>Delete</Button>
@@ -395,7 +397,7 @@ class ProductUpdate extends Component {
             </ListGroup>
           </Col>
         </Row>
-        <h2 align="right" className="header">
+        <h2 align="right" className="form-header">
           {"Sales"}
         </h2>
         <Row>
@@ -496,7 +498,7 @@ class ProductUpdate extends Component {
               {this.state.sales.length > 0 && this.state.sales.map(sale => (
                 <Button
                   type="button"
-                  className="remove-sale-btn ml-4"
+                  className="delete-btn ml-4"
                   key={sale._id}
                   id={sale._id}
                   onClick={this.deleteSale}>Delete</Button>

@@ -128,10 +128,9 @@ class SongUpdate extends Component {
     }
     return (
       <div className="inner-container">
-        <h2 align="right" className="header">
+        <h2 align="right" className="form-header">
           {this.state.name + "   (Item #" + this.state.materialNumber + ")"}
         </h2>
-        {/* <img className="center" align="center" src={this.state.imageLink} alt={this.state.type} /> */}
         <img className="center" align="center" src={this.formatImageLink()} alt={this.state.type} />
         <Row>
           <Col sm={5}>

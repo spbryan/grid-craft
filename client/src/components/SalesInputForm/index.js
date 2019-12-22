@@ -7,15 +7,7 @@ import './style.css';
 
 function Form({ q, handleInputChange, handleAddSale }) {
   return (
-    <Container>
-      <Row>
-        <Col className="form-button" align="center">
-          <Button
-            type="button"
-            className="new-btn ml-4"
-            onClick={handleAddSale}>Add Sale</Button>
-        </Col>
-      </Row>
+    <Container id="sale-input">
       <Row>
         <Col>
           <form>
@@ -81,12 +73,14 @@ function Form({ q, handleInputChange, handleAddSale }) {
             </div>
           </form>
         </Col>
-        {/* <Col className="form-button" align="right">
+      </Row>
+      <Row>
+        <Col className="form-button" align="center">
           <Button
             type="button"
             className="new-btn ml-4"
             onClick={handleAddSale}>Add Sale</Button>
-        </Col> */}
+        </Col>
       </Row>
     </Container>
   );

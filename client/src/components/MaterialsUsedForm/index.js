@@ -7,7 +7,7 @@ import './style.css';
 
 function Form({ q, handleInputChange, handleAddMaterial }) {
   return (
-    <Container>
+    <Container id="material-input">
       <Row>
         <Col>
           <form>
@@ -43,7 +43,9 @@ function Form({ q, handleInputChange, handleAddMaterial }) {
             </div>
           </form>
         </Col>
-        <Col className="form-button" align="right">
+      </Row>
+      <Row>
+      <Col className="form-button" align="center">
           <Button
             type="button"
             className="new-btn ml-4"

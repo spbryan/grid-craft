@@ -13,7 +13,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import './style.css';
+// import './style.css';
 
 class MaterialsInput extends Component {
 
@@ -83,7 +83,7 @@ class MaterialsInput extends Component {
     }
     return (
       <div className="inner-container form-label">
-        <h2 align="center" className="header">
+        <h2 align="center" className="form-header">
           Enter a Material
         </h2>
         <Row>
