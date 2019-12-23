@@ -40,7 +40,7 @@ class Home extends Component {
                 <Container id="container">
                     <Row>
                         <Col size="md-12">
-                            <h1>Home Page</h1>
+                            <h1>MatchiM&#333;</h1>
                         </Col>
                     </Row>
                 </Container>

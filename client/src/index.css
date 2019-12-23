@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  /* background: url("./images/purple-wall-color.jpg");  */
+  background: url("./images/purple-gemstones.jpg"); 
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 img {
@@ -15,13 +19,31 @@ img {
 h1 {
   text-align: center;
   margin-top: 25px;
-  /* font-family: 'Shadows Into Light', cursive; */
-  /* font-family: 'Mansalva', cursive; */
-  /* font-family: 'Baloo Bhai', cursive; */
-  /* font-family: 'Patua One', cursive; */
-  /* font-family: 'Gothic A1', sans-serif; */
-  /* font-family: 'Prociono', serif; */
-  font-family: 'Merienda One', cursive;
+  font-size: 60px;
+  font-weight: bold;
+  /* font-family: 'Merienda One', cursive; */
+
+  /* font-family: 'Quicksand', sans-serif; 7 */
+  /* font-family: 'Comfortaa', cursive; 7 */
+  /* font-family: 'Courgette', cursive; 6 */
+  /* font-family: 'Kalam', cursive; 7 */
+  font-family: 'Poiret One', cursive; 
+  /* font-family: 'Shadows Into Light Two', cursive; 5 */
+  /* font-family: 'Berkshire Swash', cursive; 5 */
+  /* font-family: 'Marcellus SC', serif; 5 */
+  /* font-family: 'Crushed', cursive; 5 */
+  /* font-family: 'Atma', cursive; 5 */
+  /* font-family: 'Ribeye Marrow', cursive; 6 */
+  /* font-family: 'Ribeye', cursive; 6 */
+  /* font-family: 'Original Surfer', cursive; 5 */
+  /* font-family: 'Snippet', sans-serif; 4 */
+  /* font-family: 'Kavivanar', cursive; 6 */
+}
+
+#container {
+  background-color: white;
+  padding: 15px;
+  margin: 15 px;
 }
 
 .form-header {

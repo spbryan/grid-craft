@@ -1,5 +1,5 @@
 /********************************
-  * API.js for Match-e-Mo
+  * API.js for MatchiMo
   * 
   * Build http requests from react with axios
   * 

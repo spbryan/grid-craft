@@ -344,7 +344,9 @@ class ProductUpdate extends Component {
         </Row>
         <Row>
           <Col>
-            <h6>Material #</h6>
+            {this.state.materialsUsed.length > 0 > 0 &&
+              <h6>Material #</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
@@ -354,7 +356,9 @@ class ProductUpdate extends Component {
             </ListGroup>
           </Col>
           <Col>
-            <h6>SKU #</h6>
+            {this.state.materialsUsed.length > 0 > 0 &&
+              <h6>SKU #</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
@@ -364,7 +368,9 @@ class ProductUpdate extends Component {
             </ListGroup>
           </Col>
           <Col>
-            <h6>Quantity</h6>
+            {this.state.materialsUsed.length > 0 > 0 &&
+              <h6>Quantity</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
@@ -374,7 +380,9 @@ class ProductUpdate extends Component {
             </ListGroup>
           </Col>
           <Col>
-            <h6>Price Per Unit</h6>
+            {this.state.materialsUsed.length > 0 > 0 &&
+              <h6>Price Per Unit</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <ListGroup.Item className="list-item"
@@ -384,7 +392,9 @@ class ProductUpdate extends Component {
             </ListGroup>
           </Col>
           <Col>
-            <h6>Remove Material</h6>
+            {this.state.materialsUsed.length > 0 > 0 &&
+              <h6>Remove Material</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.materialsUsed.length > 0 && this.state.materialsUsed.map(materialUsed => (
                 <Button
@@ -453,7 +463,9 @@ class ProductUpdate extends Component {
         </Row>
         <Row>
           <Col>
-            <h6>Sale Date</h6>
+            {this.state.sales.length > 0 > 0 &&
+              <h6>Sale Date</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.sales.length > 0 && this.state.sales.map(sale => (
                 <ListGroup.Item className="list-item"
@@ -463,7 +475,9 @@ class ProductUpdate extends Component {
             </ListGroup>
           </Col>
           <Col>
-            <h6>Location</h6>
+            {this.state.sales.length > 0 > 0 &&
+              <h6>Location</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.sales.length > 0 && this.state.sales.map(sale => (
                 <ListGroup.Item className="list-item"
@@ -473,7 +487,9 @@ class ProductUpdate extends Component {
             </ListGroup>
           </Col>
           <Col>
-            <h6>Units Sold</h6>
+            {this.state.sales.length > 0 > 0 &&
+              <h6>Units Sold</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.sales.length > 0 && this.state.sales.map(sale => (
                 <ListGroup.Item className="list-item"
@@ -483,7 +499,9 @@ class ProductUpdate extends Component {
             </ListGroup>
           </Col>
           <Col>
-            <h6>Price Per Unit</h6>
+            {this.state.sales.length > 0 > 0 &&
+              <h6>Price Per Unit</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.sales.length > 0 && this.state.sales.map(sale => (
                 <ListGroup.Item className="list-item"
@@ -493,7 +511,9 @@ class ProductUpdate extends Component {
             </ListGroup>
           </Col>
           <Col>
-            <h6>Remove Sale</h6>
+            {this.state.sales.length > 0 > 0 &&
+              <h6>Remove Sale</h6>
+            }
             <ListGroup className="list-overflow-container">
               {this.state.sales.length > 0 && this.state.sales.map(sale => (
                 <Button

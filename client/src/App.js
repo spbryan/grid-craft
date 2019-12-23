@@ -1,5 +1,5 @@
 /********************************
-  * App.js for Match-e-mo
+  * App.js for MatchiMo
   * 
   * @author Sean Bryan
   * 

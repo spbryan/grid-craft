@@ -39,12 +39,14 @@ const columns = [
   {
     name: 'Current Quantity',
     selector: 'currentQuantity',
-    sortable: true
+    sortable: true,
+    maxWidth: '10px'
   },
   {
     name: 'Price Per Unit',
     selector: 'pricePerUnit',
-    sortable: true
+    sortable: true,
+    maxWidth: '12px'
   },
 ];
 

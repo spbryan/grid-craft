@@ -34,17 +34,14 @@ const columns = [
   {
     name: 'Number Available',
     selector: 'numberAvailable',
-    sortable: true
+    sortable: true,
+    maxWidth: '10px'
   },
   {
     name: 'Number Sold',
     selector: 'numberSold',
-    sortable: true
-  },
-  {
-    name: 'Price Per Unit',
-    selector: 'pricePerUnit',
-    sortable: true
+    sortable: true,
+    maxWidth: '10px'
   }
 ];
 
