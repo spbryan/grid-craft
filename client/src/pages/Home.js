@@ -8,24 +8,12 @@
   ********************************/
 
 import React, { Component } from 'react';
-// import { Redirect } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
-// import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
 import con from "../utils/const";
-import './Home.css';
 
 class Home extends Component {
-    // state = {
-    //     date: new Date(),
-    //     teams: [],
-    //     redirect: false,
-    //     teamChosen: null,
-    //     dropdownLabel: "Choose Team"
-    // }
-
     componentDidMount() {
         if (!sessionStorage.getItem("userID")) {
             this.props.updateWhichNav(con.LOGGED_OUT);

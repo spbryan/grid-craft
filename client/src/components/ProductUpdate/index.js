@@ -470,7 +470,7 @@ class ProductUpdate extends Component {
               {this.state.sales.length > 0 && this.state.sales.map(sale => (
                 <ListGroup.Item className="list-item"
                   key={sale._id}
-                >{Moment(sale.saleDate).format('MM/DD/YYYY')}</ListGroup.Item>
+                >{Moment.utc(sale.saleDate).format('MM/DD/YYYY')}</ListGroup.Item>
               ))}
             </ListGroup>
           </Col>

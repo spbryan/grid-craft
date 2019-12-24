@@ -8,14 +8,8 @@
 import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import SaleUpdate from "../components/SaleUpdate";
-import './Sale.css';
 
 class Sale extends Component {
-
-    // state = {
-    //     redirect: false,
-    //     saleData: []
-    // };
 
     render() {
         return (

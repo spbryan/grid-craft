@@ -6,7 +6,6 @@ import Row from 'react-bootstrap/Row';
 import SalesTable from "../components/SalesTable";
 import con from "../utils/const";
 import API from "../utils/API";
-import './Sales.css';
 
 class Sales extends Component {
     componentDidMount() {

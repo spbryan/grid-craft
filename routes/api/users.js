@@ -10,11 +10,6 @@ const router = require("express").Router();
 const passport = require('passport');
 const userController = require("../../controllers/userController");
 
-// Matches with "/api/employees"
-// router.route("/")
-//   .get(employeeController.findAll);
-
-
 // Matches with "/api/users/register"
 router.route("/register")
   .post(passport.authenticate('local-signup'), function (req, res) {
@@ -30,13 +25,5 @@ router.route("/login")
     console.log(req.user);
     res.json(req.user);
   });
-
-
-// Matches with "/api/employees/:id"
-// router
-//   .route("/:id")
-//   .get(employeeController.findById)
-//   .put(employeeController.update)
-//   .delete(employeeController.remove);
 
 module.exports = router;

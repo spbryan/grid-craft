@@ -52,7 +52,6 @@ class ProductsTable extends Component {
   };
 
   redirectLocation = '';
-  // song = '';
 
   handleClick = (state) => {
     this.redirectLocation = '/product';

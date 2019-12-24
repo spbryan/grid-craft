@@ -7,7 +7,6 @@ import Col from "react-bootstrap/Col";
 
 import './style.css';
 
-
 class SignupForm extends Component {
 
   constructor(props) {
@@ -19,11 +18,6 @@ class SignupForm extends Component {
     };
   }
   redirectLocation = '';
-
-  // handleInputChange = event => {
-  //   console.log('handle input change on signup: ' + event.target.name + ' ' + event.target.value.toUpperCase());
-  //   this.setState({ [event.target.name]: event.target.value.toUpperCase() });
-  // }
 
   handleInputChange = event => {
     console.log('handle input change on signup: ' + event.target.name + ' ' + event.target.value);

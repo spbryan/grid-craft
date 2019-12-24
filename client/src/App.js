@@ -77,7 +77,6 @@ class App extends Component {
             <Route exact path="/product" render={(props) => <Product {...props}/>}/>
             <Route exact path="/productInput" render={(props) => <ProductInput {...props} updateWhichNav={this.updateWhichNav}/>} />
           </Container>
-          {/* <Footer /> */}
         </div>
       </Router>
     );

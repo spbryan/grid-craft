@@ -13,7 +13,6 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-// import './style.css';
 
 class MaterialsInput extends Component {
 
@@ -193,7 +192,6 @@ class MaterialsInput extends Component {
               <Form.Group as={Col} controlId="formGridNotes">
                 <Form.Label>Additional Details</Form.Label>
                 <Form.Control as="textarea" rows="3" type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} />
-                {/* <Form.Control type="notes" name="notes" placeholder={this.state.notes} onChange={this.handleInputChange} /> */}
               </Form.Group>
             </Form.Row>
           </Col>

@@ -22,7 +22,6 @@ class NavLogin extends Component {
     handleLogOut = props => {
         console.log(sessionStorage)
         sessionStorage.clear();
-        // this.props.updateWhichNav(con.NOUSER);
     }
 
     updateWidth = () => {
@@ -55,9 +54,6 @@ class NavLogin extends Component {
                     <NavLink className="ml-auto" activeStyle={{ fontWeight: "bold", textDecoration: "underline" }} activeClassName="active" id="login" to="/loginscreen">
                         Sign-in/Sign-up
                     </NavLink>
-                    {/* <NavLink onClick={this.handleLogOut} className="ml-auto" id="logout" to="/">
-                        Logout for {this.props.devName}
-                    </NavLink> */}
                 </Navbar.Collapse>
             </Navbar >
         )

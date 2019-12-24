@@ -14,7 +14,6 @@ import Button from "react-bootstrap/Button";
 import ProductsTable from "../components/ProductsTable";
 import con from "../utils/const";
 import API from "../utils/API";
-import './Inventory.css';
 
 class Inventory extends Component {
     componentDidMount() {
@@ -72,9 +71,6 @@ class Inventory extends Component {
     };
 
     render() {
-        // if (this.state.redirect) {
-        //     return <Redirect to={this.redirectLocation} />;
-        // }
         if (this.state.redirect) {
             return (<Redirect to={{
                 pathname: this.redirectLocation,

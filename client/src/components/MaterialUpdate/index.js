@@ -25,7 +25,6 @@ class SongUpdate extends Component {
     skuNumber: '',
     _id: '',
     name: '',
-    skuNumber: '',
     type: '',
     gauge: '',
     length: '',
@@ -233,7 +232,7 @@ class SongUpdate extends Component {
             </Form.Row>
           </Col>
           <Col sm={2} id="purchase-from-link">
-            <a href={this.state.purchasedLink} target="_blank">Go to Web Page</a>
+            <a href={this.state.purchasedLink} target="_blank" rel="noopener  noreferrer">Go to Web Page</a>
           </Col>
         </Row>
         <Row>

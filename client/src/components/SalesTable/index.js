@@ -16,7 +16,7 @@ const columns = [
     name: 'Date',
     selector: 'saleDate',
     sortable: true,
-    format: row => moment(row.timestamp).format('MM/DD/YYYY')
+    format: row => moment.utc(row.saleDate).format('MM/DD/YYYY')
   },
   {
     name: 'Location',

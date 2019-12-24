@@ -52,7 +52,6 @@ class Navigation extends Component {
 
     render() {
         return (
-            // <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar collapseOnSelect expand="lg" variant="darklight" id="nav-bar">
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

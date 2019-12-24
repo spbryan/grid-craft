@@ -27,11 +27,6 @@ class LoginForm extends Component {
 
   redirectLocation = ''; 
 
-  // handleInputChange = event => {
-  //   console.log('handle input change on login: ' + event.target.name + ' ' + event.target.value.toUpperCase());
-  //   this.setState({ [event.target.name]: event.target.value.toUpperCase() });
-  // }
-
   handleInputChange = event => {
     console.log('handle input change on login: ' + event.target.name + ' ' + event.target.value);
     this.setState({ [event.target.name]: event.target.value });

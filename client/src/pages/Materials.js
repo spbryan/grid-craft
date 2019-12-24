@@ -14,12 +14,8 @@ import Button from "react-bootstrap/Button";
 import MaterialsTable from "../components/MaterialsTable";
 import con from "../utils/const";
 import API from "../utils/API";
-import './Materials.css';
 
 class Materials extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
 
     componentDidMount() {
         if (!sessionStorage.getItem("userID")) {
